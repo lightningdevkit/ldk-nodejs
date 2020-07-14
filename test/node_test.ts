@@ -7,6 +7,7 @@ const assert = chai.assert;
 
 import * as RawFFI from '../src/ldk/ffi';
 import ManyChannelMonitor from '../src/ManyChannelMonitor';
+import RawLDKTypes from '../src/ldk/RawLDKTypes';
 const library = RawFFI.liblightning;
 
 describe('Node Test', () => {
@@ -21,8 +22,8 @@ describe('Node Test', () => {
 
 
 		const testnetNetwork = RawFFI.CONSTANTS.LDKNetwork.LDKNetwork_Testnet;
-		const ldkSecretKey = new RawFFI.LDKSecretKey({bytes: [...privateKey]});
-		const ldkSecretKeyPointer = ldkSecretKey['ref.buffer'].ref();
+		const ldkSecretKey = RawLDKTypes.bufferToSecretKey(privateKey);
+		const ldkSecretKeyPointer = RawLDKTypes.structToPointer(ldkSecretKey);
 
 		const logCallback = ffi.Callback(ref.types.void, [ref.types.void, ref.types.char], (this_arg, string) => {
 			console.log('logging callback');
@@ -48,7 +49,7 @@ describe('Node Test', () => {
 			3
 		);
 
-		const keyManagerPointer = keyManager['ref.buffer'].ref();
+		const keyManagerPointer = RawLDKTypes.structToPointer(keyManager);
 		const keysInterface = library.KeysManager_as_KeysInterface(keyManagerPointer);
 
 		const channelManager = library.ChannelManager_new(
