@@ -1,0 +1,52 @@
+{
+	"name": "node-ldk",
+	"version": "0.1.0",
+	"description": "Example implementation of LDK in Node",
+	"main": "index.js",
+	"types": "index.d.ts",
+	"scripts": {
+		"test": "./node_modules/mocha/bin/_mocha ./test",
+		"tsc": "./node_modules/typescript/bin/tsc --build tsconfig.json",
+		"prepublish": "npm run tsc"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/arik-so/node-ldk"
+	},
+	"keywords": [
+		"lightning",
+		"ldk",
+		"rust-lightning"
+	],
+	"author": "Arik Sosman",
+	"license": "MIT",
+	"engines": {
+		"node": ">=10.4.0",
+		"npm": ">=4.0.0"
+	},
+	"devDependencies": {
+		"@types/bigi": "^1.4.2",
+		"@types/chai": "^4.2.5",
+		"@types/debug": "^4.1.5",
+		"@types/ecurve": "^1.0.0",
+		"@types/ffi": "^0.2.2",
+		"@types/mocha": "^5.2.7",
+		"@types/node": "^12.12.11",
+		"@types/ref": "0.0.28",
+		"chai": "^4.2.0",
+		"ffi-generate": "^0.0.8",
+		"mocha": "^6.2.2",
+		"typescript": "^3.7.2"
+	},
+	"dependencies": {
+		"bigi": "^1.4.2",
+		"bigint-buffer": "^1.1.5",
+		"chacha20": "^0.1.4",
+		"debug": "^4.1.1",
+		"ecurve": "^1.0.6",
+		"ffi": "^2.3.0",
+		"lightning-tlv": "^0.1.5",
+		"ref": "^1.3.5",
+		"ref-union": "^1.0.1"
+	}
+}
