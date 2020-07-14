@@ -22,7 +22,7 @@ describe('Node Test', () => {
 
 		const testnetNetwork = RawFFI.CONSTANTS.LDKNetwork.LDKNetwork_Testnet;
 		const ldkSecretKey = new RawFFI.LDKSecretKey({bytes: [...privateKey]});
-
+		const ldkSecretKeyPointer = ldkSecretKey['ref.buffer'].ref();
 
 		const logCallback = ffi.Callback(ref.types.void, [ref.types.void, ref.types.char], (this_arg, string) => {
 			console.log('logging callback');
@@ -42,11 +42,14 @@ describe('Node Test', () => {
 		const transactionBroadcaster = new RawFFI.LDKBroadcasterInterface();
 
 		const keyManager = library.KeysManager_new(
-			null,
+			ldkSecretKeyPointer,
 			1,
 			2,
 			3
 		);
+
+		const keyManagerPointer = keyManager['ref.buffer'].ref();
+		const keysInterface = library.KeysManager_as_KeysInterface(keyManagerPointer);
 
 		const channelManager = library.ChannelManager_new(
 			testnetNetwork,
@@ -54,12 +57,12 @@ describe('Node Test', () => {
 			mcm.rawManyChannelMonitor,
 			transactionBroadcaster,
 			logger,
-			keyManager,
+			keysInterface,
 			defaultConfig,
 			1027
 		);
 
-		assert.equal(2+2, 4);
+		assert.equal(channelManager['ref.buffer'].length, 16);
 
 	});
 
