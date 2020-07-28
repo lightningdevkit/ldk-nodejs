@@ -22,13 +22,19 @@ describe('Node Test', () => {
 
 
 		const testnetNetwork = RawFFI.CONSTANTS.LDKNetwork.LDKNetwork_Testnet;
-		const ldkSecretKey = RawLDKTypes.bufferToSecretKey(privateKey);
-		const ldkSecretKeyPointer = RawLDKTypes.structToPointer(ldkSecretKey);
 
-		const logCallback = ffi.Callback(ref.types.void, [ref.types.void, ref.types.char], (this_arg, string) => {
+		const ldkSecretKey = RawLDKTypes.bufferToSecretKey(privateKey);
+		// const ldkSecretKeyPtrType = ref.refType(RawFFI.LDKSecretKey);
+		// const ldkSecretKeyPointer = ref.alloc(ldkSecretKeyPtrType, ldkSecretKey.ref());
+		const ldkSecretKeyPointer = ldkSecretKey.ref();
+
+		const logCallback = ffi.Callback('void', [ref.types.void, 'string'], (this_arg, string) => {
 			console.log('logging callback');
 		});
-		const logger = new RawFFI.LDKLogger();
+		const logger = new RawFFI.LDKLogger({
+			this_arg: Buffer.alloc(8, 2),
+			log: logCallback,
+		});
 
 		const feeEstimator = new RawFFI.LDKFeeEstimator({
 			this_arg: null,
@@ -44,14 +50,15 @@ describe('Node Test', () => {
 
 		const keyManager = library.KeysManager_new(
 			ldkSecretKeyPointer,
-			1,
-			2,
-			3
+			testnetNetwork,
+			0,
+			0
 		);
 
-		const keyManagerPointer = RawLDKTypes.structToPointer(keyManager);
+		const keyManagerPointer = keyManager.ref();
 		const keysInterface = library.KeysManager_as_KeysInterface(keyManagerPointer);
 
+		/*
 		const channelManager = library.ChannelManager_new(
 			testnetNetwork,
 			feeEstimator,
@@ -62,8 +69,67 @@ describe('Node Test', () => {
 			defaultConfig,
 			1027
 		);
+		/*
+		const channelManagerPointer = RawLDKTypes.structToPointer(channelManager);
+		const channelMessageHandler = library.ChannelManager_as_ChannelMessageHandler(channelManagerPointer);
+		 */
+		const channelMessageHandler = new RawFFI.LDKChannelMessageHandler();
 
-		assert.equal(channelManager['ref.buffer'].length, 16);
+		// todo: smart construction
+		const routingMessageHandler = new RawFFI.LDKRoutingMessageHandler();
+
+		const messageHandler = library.MessageHandler_new(channelMessageHandler, routingMessageHandler);
+
+		const peerManager = library.PeerManager_new(messageHandler, ldkSecretKey, ephemeralPrivateKey, logger);
+		console.log('Node has underlying ref:', peerManager._underlying_ref);
+		console.log('Node Arik number:', peerManager.arik_number);
+
+
+
+		// initiate new outbound connection
+
+		const sendDataCallback = ffi.Callback(ref.types.uint, [ref.types.void, RawFFI.LDKu8slice, ref.types.bool], (this_arg, buffer, something) => {
+			console.log('send data callback');
+			return 1;
+		});
+
+		const disconnectCallback = ffi.Callback(ref.types.void, [ref.types.void], (this_arg) => {
+			console.log('disconnect callback');
+		});
+
+		const eqCallback = ffi.Callback(ref.types.bool, [ref.types.void, ref.types.void], (obj1, obj2) => {
+			console.log('eq callback');
+			return true;
+		});
+
+		const hashCallback = ffi.Callback(ref.types.uint64, [ref.types.void], (obj) => {
+			console.log('hash callback');
+			return 1;
+		});
+
+		const socketDescriptor = new RawFFI.LDKSocketDescriptor({
+			this_arg: Buffer.alloc(8, 0),
+			send_data: sendDataCallback,
+			disconnect_socket: disconnectCallback,
+			eq: eqCallback,
+			hash: hashCallback,
+		});
+		const remotePublicKeyObject = RawLDKTypes.bufferToPublicKey(remotePublicKey);
+		// const remotePublicKeyObject = ref.alloc(RawFFI.LDKPublicKey, {
+		// 	compressed_form: [...remotePublicKey]
+		// })
+		const peerManagerPointer = peerManager.ref().ref();
+
+		// const derefPeerManager = peerManagerPointer.deref();
+		const arikArgument: Buffer = ref.alloc(ref.types.uint8, 13);
+		const arikArgumentPointer = arikArgument.ref();
+		const firstMessage = library.PeerManager_new_outbound_connection(arikArgumentPointer, peerManagerPointer, remotePublicKeyObject, socketDescriptor);
+
+
+		console.log(peerManager, peerManagerPointer);
+
+		// assert.equal(channelManager['ref.buffer'].length, 16);
+		assert.equal(2+2, 4);
 
 	});
 
