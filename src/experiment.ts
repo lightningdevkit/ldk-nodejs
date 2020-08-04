@@ -4,9 +4,24 @@ import * as Struct from 'ref-struct';
 import ArrayType = require('ref-array');
 
 import * as RawFFI from './ldk/ffi';
-import ManyChannelMonitor from './ManyChannelMonitor';
+import ManyChannelMonitor from './ldk/ManyChannelMonitor';
 import RawLDKTypes from './ldk/RawLDKTypes';
+
 const library = RawFFI.liblightning;
+
+
+function testUnionResult() {
+	console.log('arik type size:', RawFFI.ArikType.size);
+
+	for (let i = 0; i < 50; i++) {
+		const result = library.arik_test(12, 13/*, peerManagerPointer, remotePublicKeyObject, socketDescriptor*/);
+		const pointee = result.q;
+	}
+
+	process.exit(0);
+	console.log('here');
+}
+
 
 const voidPtrType = ref.refType(ref.types.void);
 
@@ -16,7 +31,6 @@ const u8Arg: Buffer = ref.alloc(ref.types.uint8);
 u8Arg.writeUInt8(14, 0);
 
 
-
 const ArikStructType = Struct({
 	first: ref.types.uint8,
 	second: ref.types.uint8,
@@ -24,11 +38,9 @@ const ArikStructType = Struct({
 	sub: Struct({
 		fifth: ref.types.uint8,
 		sixth: ref.types.uint8,
-		seventh: ref.types.uint8,
+		seventh: ref.types.uint8
 	})
 });
-
-
 
 
 const privateKey = Buffer.from('ERERERERERERERERERERERERERERERERERERERERERE=', 'base64');
@@ -43,6 +55,7 @@ console.log('Nodejs secret:', [...privateKey].join(', '));
 
 const testnetNetwork = RawFFI.CONSTANTS.LDKNetwork.LDKNetwork_Testnet;
 
+
 const ldkSecretKey = RawLDKTypes.bufferToSecretKey(privateKey);
 
 // const ldkSecretKeyPtrType = ref.refType(RawFFI.LDKSecretKey);
@@ -51,12 +64,13 @@ const ldkSecretKeyPointer = ldkSecretKey.ref();
 
 
 
+
 const logCallback = ffi.Callback('void', [voidPtrType, 'string'], (this_arg, string) => {
 	console.log('logging callback');
 });
 const logger = new RawFFI.LDKLogger({
 	this_arg: Buffer.alloc(8, 2),
-	log: logCallback,
+	log: logCallback
 });
 
 const feeEstimator = new RawFFI.LDKFeeEstimator({
@@ -71,7 +85,6 @@ const mcm = new ManyChannelMonitor();
 const transactionBroadcaster = new RawFFI.LDKBroadcasterInterface();
 
 
-
 const keyManager = library.KeysManager_new(
 	ldkSecretKeyPointer,
 	testnetNetwork,
@@ -80,8 +93,6 @@ const keyManager = library.KeysManager_new(
 );
 
 
-const arikType = RawFFI.ArikType;
-const pheType = RawFFI.LDKCResultTempl_CVecTempl_u8_____PeerHandleError;
 
 const keysInterfaceSize = RawFFI.LDKKeysInterface.size;
 const arikTypeSize = RawFFI.ArikType.size;
@@ -98,6 +109,8 @@ console.dir(arik_result);
 // /process.exit(0);
 */
 const keysInterface = library.KeysManager_as_KeysInterface(37, 54, keyManagerPointer);
+
+
 
 /*
 const channelManager = library.ChannelManager_new(
@@ -121,10 +134,11 @@ const routingMessageHandler = new RawFFI.LDKRoutingMessageHandler();
 
 const messageHandler = library.MessageHandler_new(channelMessageHandler, routingMessageHandler);
 
+
+
 const peerManager = library.PeerManager_new(23, messageHandler, ldkSecretKey, ephemeralPrivateKey, logger);
 console.log('Node has underlying ref:', peerManager._underlying_ref);
 console.log('Node Arik number:', peerManager.arik_number);
-
 
 
 // initiate new outbound connection
@@ -154,13 +168,23 @@ const socketDescriptor = new RawFFI.LDKSocketDescriptor({
 	send_data: sendDataCallback,
 	disconnect_socket: disconnectCallback,
 	eq: eqCallback,
-	hash: hashCallback,
+	hash: hashCallback
 });
 const remotePublicKeyObject = RawLDKTypes.bufferToPublicKey(remotePublicKey);
 // const remotePublicKeyObject = ref.alloc(RawFFI.LDKPublicKey, {
 // 	compressed_form: [...remotePublicKey]
 // })
+
+// const firstMessage = library.PeerManager_new_outbound_connection(93, null, remotePublicKeyObject, socketDescriptor);
+
 const peerManagerPointer = peerManager.ref();
+
+
+
+
+
+
+
 
 // const expectedResultType = RawFFI.LDKCResultTempl_CVecTempl_u8_____PeerHandleError;
 /* const expectedResultType = RawFFI.LDKCVecTempl_u8;
@@ -177,12 +201,25 @@ console.log('jere');
 */
 
 // const pheType = RawFFI.LDKCResultTempl_CVecTempl_u8_____PeerHandleError;
-const result = library.arik_test(12, 13/*, peerManagerPointer, remotePublicKeyObject, socketDescriptor*/);
-const pointee = result.q;
 
-console.log('here');
-
+// console.log('size:', RawFFI.LDKCResultTempl_CVecTempl_u8_____PeerHandleError.size);
+console.log('size:', RawFFI.ArikType.size);
 // const firstMessage = library.PeerManager_new_outbound_connection(93, peerManagerPointer, remotePublicKeyObject, socketDescriptor);
+const firstMessage = library.PeerManager_new_outbound_connection(93, 103, peerManagerPointer, remotePublicKeyObject, socketDescriptor);
+const pointee = firstMessage.q;
+const messageWrapper = firstMessage.message.deref();
+if(messageWrapper.result_good){
+	const content = messageWrapper.contents.result.deref();
+	const length = content.datalen;
+	if(length === 50){
+		console.log('HALLELUJAH!');
+	}
+	const rawResponse = ref.reinterpret(content.data, length);
+	console.log('raw response:', rawResponse.toString('hex'));
+}
+const value = pointee.readUInt16LE();
+console.log(value);
+// testUnionResult();
 
 
 // console.log(peerManager, peerManagerPointer, ldkSecretKey, ldkSecretKeyPointer);

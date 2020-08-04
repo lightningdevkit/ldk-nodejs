@@ -15,6 +15,22 @@ export default class RawLDKTypes {
 		return ldkPublicKey;
 	}
 
+	public static bufferFromLDKu8slice(slice: RawFFI.LDKu8slice): Buffer {
+		const data = ref.reinterpret(slice.data, slice.datalen);
+		return data;
+	}
+
+	public static bufferToLDKu8slice(buffer: Buffer): RawFFI.LDKu8slice {
+		const datalen = buffer.length;
+		const data = Buffer.from([...buffer, null]);
+		const slice = RawFFI.LDKu8slice({
+			data,
+			datalen
+		});
+		const recoveredData = ref.reinterpret(slice.data, slice.datalen);
+		return slice;
+	}
+
 	public static structToPointer(struct: any): any {
 		// return struct['ref.buffer'].ref();
 		// return ref.refType(struct);

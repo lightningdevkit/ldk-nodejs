@@ -890,14 +890,14 @@ var LDKSocketDescriptor = exports.LDKSocketDescriptor = Struct({
 var LDKSocketDescriptorPtr = exports.LDKSocketDescriptorPtr = ref.refType(LDKSocketDescriptor);
 var bool = exports.bool = voidPtr;
 var boolPtr = exports.boolPtr = ref.refType(bool);
-var LDKCResultPtr_bool__PeerHandleError = exports.LDKCResultPtr_bool__PeerHandleError = Struct({
-	result: bool,
+var LDKCResultPtr_bool__PeerHandleError = exports.LDKCResultPtr_bool__PeerHandleError = Union({
+	result: ref.types.bool,
 	err: LDKPeerHandleErrorPtr,
 });
 var LDKCResultPtr_bool__PeerHandleErrorPtr = exports.LDKCResultPtr_bool__PeerHandleErrorPtr = ref.refType(LDKCResultPtr_bool__PeerHandleError);
 var LDKCResultTempl_bool__PeerHandleError = exports.LDKCResultTempl_bool__PeerHandleError = Struct({
 	contents: LDKCResultPtr_bool__PeerHandleError,
-	result_good: ref.types.uint32,
+	result_good: ref.types.bool,
 });
 var LDKCResultTempl_bool__PeerHandleErrorPtr = exports.LDKCResultTempl_bool__PeerHandleErrorPtr = ref.refType(LDKCResultTempl_bool__PeerHandleError);
 var LDKlnTxCreationKeys = exports.LDKlnTxCreationKeys = voidPtr;
@@ -1046,8 +1046,8 @@ var ArikSubType = exports.ArikSubType = Struct({
 });
 
 const BarUnionType = exports.BarUnionType = Union({
-	small: ref.types.uint8,
-	big: ref.types.uint16,
+	// small: ref.types.uint8,
+	sixteen: ref.types.uint16,
 });
 
 const FooType = exports.FooType = Struct({
@@ -1086,6 +1086,7 @@ var ArikType = exports.ArikType = Struct({
 
 	q: ref.refType(BarUnionType),
 	// big_union: ref.types.uint16,
+	message: ref.refType(LDKCResultTempl_CVecTempl_u8_____PeerHandleError),
 
 	second: ref.types.uint8,
 	third: ref.types.uint8,
@@ -1100,6 +1101,11 @@ var ArikType = exports.ArikType = Struct({
 	twelvth: ref.types.uint8,
 	thirteenth: ref.types.uint8,
 	fourteenth: ref.types.uint8,
+	fifteenth: ref.types.uint8,
+	sixteenth: ref.types.uint8,
+	seventeenth: ref.types.uint8,
+	eighteenth: ref.types.uint8,
+	nineteenth: ref.types.uint8,
 
 	// sub: LDKCResultTempl_CVecTempl_u8_____PeerHandleError
 	// sixth: ref.types.uint8,
@@ -2116,7 +2122,9 @@ exports.liblightning = new FFI.Library(__dirname + '/../../lib/liblightning_c_bi
 	PeerManager_get_peer_node_ids: [LDKCVecTempl_PublicKey, [
 		LDKPeerManagerPtr,
 	]],
-	PeerManager_new_outbound_connection: [LDKCResultTempl_CVecTempl_u8_____PeerHandleError, [
+	// PeerManager_new_outbound_connection: [LDKCResultTempl_CVecTempl_u8_____PeerHandleError, [
+	PeerManager_new_outbound_connection: [ArikType, [
+		ref.types.uint8,
 		ref.types.uint8,
 		LDKPeerManagerPtr,
 		LDKPublicKey,
@@ -2130,7 +2138,8 @@ exports.liblightning = new FFI.Library(__dirname + '/../../lib/liblightning_c_bi
 		LDKPeerManagerPtr,
 		LDKSocketDescriptorPtr,
 	]],
-	PeerManager_read_event: [LDKCResultTempl_bool__PeerHandleError, [
+	PeerManager_read_event: [ref.refType(LDKCResultTempl_bool__PeerHandleError), [
+		ref.types.uint8,
 		LDKPeerManagerPtr,
 		LDKSocketDescriptorPtr,
 		LDKu8slice,
