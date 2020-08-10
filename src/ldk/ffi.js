@@ -891,12 +891,17 @@ var LDKSocketDescriptorPtr = exports.LDKSocketDescriptorPtr = ref.refType(LDKSoc
 var bool = exports.bool = voidPtr;
 var boolPtr = exports.boolPtr = ref.refType(bool);
 var LDKCResultPtr_bool__PeerHandleError = exports.LDKCResultPtr_bool__PeerHandleError = Union({
-	result: ref.types.bool,
+	// result: ref.types.bool, // COMMENT OUT THIS FIELD TO  MAKE READ EVENT  WORK
 	err: LDKPeerHandleErrorPtr,
 });
 var LDKCResultPtr_bool__PeerHandleErrorPtr = exports.LDKCResultPtr_bool__PeerHandleErrorPtr = ref.refType(LDKCResultPtr_bool__PeerHandleError);
 var LDKCResultTempl_bool__PeerHandleError = exports.LDKCResultTempl_bool__PeerHandleError = Struct({
 	contents: LDKCResultPtr_bool__PeerHandleError,
+	result_good: ref.types.bool,
+});
+var ArikPeerHandleError = exports.ArikPeerHandleError = Struct({
+	contents: LDKCResultPtr_bool__PeerHandleError,
+	// contents: ref.types.uint64,
 	result_good: ref.types.bool,
 });
 var LDKCResultTempl_bool__PeerHandleErrorPtr = exports.LDKCResultTempl_bool__PeerHandleErrorPtr = ref.refType(LDKCResultTempl_bool__PeerHandleError);
@@ -2138,7 +2143,9 @@ exports.liblightning = new FFI.Library(__dirname + '/../../lib/liblightning_c_bi
 		LDKPeerManagerPtr,
 		LDKSocketDescriptorPtr,
 	]],
-	PeerManager_read_event: [ref.refType(LDKCResultTempl_bool__PeerHandleError), [
+	// PeerManager_read_event: [ref.refType(LDKCResultTempl_bool__PeerHandleError), [
+	// PeerManager_read_event: [LDKCResultTempl_bool__PeerHandleError, [
+	PeerManager_read_event: [ArikPeerHandleError, [
 		ref.types.uint8,
 		LDKPeerManagerPtr,
 		LDKSocketDescriptorPtr,

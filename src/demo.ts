@@ -86,9 +86,13 @@ if(messageWrapper.result_good){
 		console.log(data.toString('hex'), '\n');
 		const response = RawLDKTypes.bufferToLDKu8slice(data);
 
-		console.log('read return size:', RawFFI.LDKCResultTempl_bool__PeerHandleError.size);
+		// console.log('read return size:', RawFFI.LDKCResultTempl_bool__PeerHandleError.size);
+		console.log('read event return type size (nodejs perspective):', RawFFI.ArikPeerHandleError.size);
 
+		process.env.ENABLE_ARIK_DEBUG = '1';
+		// THIS IS WHERE IT STARTS
 		library.PeerManager_read_event(73, peerManagerPointer, socketDescriptor.ref(), response);
+		// THIS IS WHERE IT SHOULDN'T, BUT DOES, END
 	});
 
 	client.on('error', (error) => {
