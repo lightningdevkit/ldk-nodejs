@@ -73,11 +73,6 @@ const logger = new RawFFI.LDKLogger({
 	log: logCallback
 });
 
-const feeEstimator = new RawFFI.LDKFeeEstimator({
-	this_arg: null,
-	get_est_sat_per_1000_weight: null
-});
-
 const defaultConfig = library.UserConfig_default();
 
 const mcm = new ManyChannelMonitor();

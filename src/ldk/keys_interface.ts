@@ -20,6 +20,7 @@ export default class KeysInterface extends RawLDKObject{
 		const keysInterface = library.KeysManager_as_KeysInterface(37, 54, keyManagerPointer);
 		const instance = new KeysInterface();
 		instance.rawObject = keysInterface;
+		return instance;
 	}
 
 }

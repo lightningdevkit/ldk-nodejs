@@ -258,6 +258,19 @@ var LDKPaymentSendFailure = exports.LDKPaymentSendFailure = Struct({
 	inner: LDKlnPaymentSendFailure,
 	_underlying_ref: ref.types.uint32,
 });
+
+var LDKMessageSendEvent = exports.LDKMessageSendEvent = Struct({
+	tag: ref.types.uint16,
+	body: Union({
+		first: ref.types.uint8
+	})
+});
+
+var LDKCVecTempl_MessageSendEvent = exports.LDKCVecTempl_MessageSendEvent = Struct({
+	data: ref.refType(LDKMessageSendEvent),
+	datalen: ref.types.ulong,
+});
+
 var LDKPaymentSendFailurePtr = exports.LDKPaymentSendFailurePtr = ref.refType(LDKPaymentSendFailure);
 var LDKCResultPtr_u8__PaymentSendFailure = exports.LDKCResultPtr_u8__PaymentSendFailure = Struct({
 	result: uint8_tPtr,
@@ -891,8 +904,8 @@ var LDKSocketDescriptorPtr = exports.LDKSocketDescriptorPtr = ref.refType(LDKSoc
 var bool = exports.bool = voidPtr;
 var boolPtr = exports.boolPtr = ref.refType(bool);
 var LDKCResultPtr_bool__PeerHandleError = exports.LDKCResultPtr_bool__PeerHandleError = Union({
-	// result: ref.types.bool, // COMMENT OUT THIS FIELD TO  MAKE READ EVENT  WORK
 	err: LDKPeerHandleErrorPtr,
+	// result: ref.types.bool, // COMMENT OUT THIS FIELD TO  MAKE READ EVENT  WORK
 });
 var LDKCResultPtr_bool__PeerHandleErrorPtr = exports.LDKCResultPtr_bool__PeerHandleErrorPtr = ref.refType(LDKCResultPtr_bool__PeerHandleError);
 var LDKCResultTempl_bool__PeerHandleError = exports.LDKCResultTempl_bool__PeerHandleError = Struct({
@@ -1609,7 +1622,9 @@ exports.liblightning = new FFI.Library(__dirname + '/../../lib/liblightning_c_bi
 		LDKUserConfig,
 		ref.types.ulong,
 	]],
-	ChannelManager_create_channel: [LDKCResultTempl_u8__APIError, [
+	// ChannelManager_create_channel: [LDKCResultTempl_u8__APIError, [
+	ChannelManager_create_channel: [ref.refType(LDKCResultTempl_u8__APIError), [
+		ref.types.uint8,
 		LDKChannelManagerPtr,
 		LDKPublicKey,
 		ref.types.ulonglong,
@@ -1679,8 +1694,13 @@ exports.liblightning = new FFI.Library(__dirname + '/../../lib/liblightning_c_bi
 	ChannelManager_as_MessageSendEventsProvider: [LDKMessageSendEventsProvider, [
 		LDKChannelManagerPtr,
 	]],
-	ChannelManager_as_EventsProvider: [LDKEventsProvider, [
+	// ChannelManager_as_EventsProvider: [LDKEventsProvider, [
+	ChannelManager_as_EventsProvider: [ref.refType(LDKEventsProvider), [
+		ref.types.uint8,
 		LDKChannelManagerPtr,
+	]],
+	EventsProvider_invoke: [ref.refType(LDKCVecTempl_MessageSendEvent), [
+		ref.refType(LDKEventsProvider)
 	]],
 	ChannelManager_as_ChainListener: [LDKChainListener, [
 		LDKChannelManagerPtr,
@@ -2124,7 +2144,9 @@ exports.liblightning = new FFI.Library(__dirname + '/../../lib/liblightning_c_bi
 		voidPtr,
 		LDKLogger,
 	]],
-	PeerManager_get_peer_node_ids: [LDKCVecTempl_PublicKey, [
+	// PeerManager_get_peer_node_ids: [LDKCVecTempl_PublicKey, [
+	PeerManager_get_peer_node_ids: [ref.refType(LDKCVecTempl_PublicKey), [
+		ref.types.uint8,
 		LDKPeerManagerPtr,
 	]],
 	// PeerManager_new_outbound_connection: [LDKCResultTempl_CVecTempl_u8_____PeerHandleError, [
@@ -2143,9 +2165,9 @@ exports.liblightning = new FFI.Library(__dirname + '/../../lib/liblightning_c_bi
 		LDKPeerManagerPtr,
 		LDKSocketDescriptorPtr,
 	]],
-	// PeerManager_read_event: [ref.refType(LDKCResultTempl_bool__PeerHandleError), [
+	PeerManager_read_event: [ref.refType(LDKCResultTempl_bool__PeerHandleError), [
 	// PeerManager_read_event: [LDKCResultTempl_bool__PeerHandleError, [
-	PeerManager_read_event: [ArikPeerHandleError, [
+	// PeerManager_read_event: [ArikPeerHandleError, [
 		ref.types.uint8,
 		LDKPeerManagerPtr,
 		LDKSocketDescriptorPtr,
