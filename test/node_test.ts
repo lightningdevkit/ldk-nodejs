@@ -6,7 +6,7 @@ import chai = require('chai');
 const assert = chai.assert;
 
 import * as RawFFI from '../src/ldk/ffi';
-import ManyChannelMonitor from '../src/ManyChannelMonitor';
+import ManyChannelMonitor from '../src/ldk/ManyChannelMonitor';
 import RawLDKTypes from '../src/ldk/RawLDKTypes';
 const library = RawFFI.liblightning;
 

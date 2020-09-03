@@ -9,10 +9,6 @@
 		"tsc": "./node_modules/typescript/bin/tsc --build tsconfig.json",
 		"prepublish": "npm run tsc"
 	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/arik-so/node-ldk"
-	},
 	"keywords": [
 		"lightning",
 		"ldk",
