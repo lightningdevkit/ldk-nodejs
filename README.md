@@ -18,7 +18,7 @@ of this project folder. It should typically be named `liblightning.dylib` or
 
 ### Header Files
 
-The `genbindings.sh` script referenced in the [Dynamic Libraries](#Dynamic Libraries)
+The `genbindings.sh` script referenced in the [Dynamic Libraries](#dynamic-libraries)
 section above also produces header files, one for C++ (`lightningpp.hpp`) and two
 for C: `rust_types.h` and `lightning.h`.
 
