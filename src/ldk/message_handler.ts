@@ -9,7 +9,7 @@ import KeysInterface from './keys_interface';
 import ChannelManager from './channel_manager';
 import logger from './logger';
 
-const library = RawFFI.liblightning;
+const library = RawFFI.libldk;
 
 export default class MessageHandler extends RawLDKObject{
 
@@ -22,20 +22,22 @@ export default class MessageHandler extends RawLDKObject{
 		// direct instantiation
 		// const channelMessageHandler = new RawFFI.LDKChannelMessageHandler();
 
-		const routingSelf = Buffer.alloc(8);
-		const voidPtr = ffi.Callback(ref.types.void, [voidPtrType], (this_arg) => {
-			return false;
-		});
-		const shouldRequestFullSyncCallback = ffi.Callback(ref.types.bool, [voidPtrType, RawFFI.LDKPublicKey], (this_arg, public_key) => {
-			return false;
-		});
+		// const routingSelf = Buffer.alloc(8);
+		// const voidPtr = ffi.Callback(ref.types.void, [voidPtrType], (this_arg) => {
+		// 	return false;
+		// });
+		// const shouldRequestFullSyncCallback = ffi.Callback(ref.types.bool, [voidPtrType, RawFFI.LDKPublicKey], (this_arg, public_key) => {
+		// 	return false;
+		// });
 
 
-		const testnetNetwork = RawFFI.CONSTANTS.LDKNetwork.LDKNetwork_Testnet;
-		const chainWatchInterfaceUtil = library.ChainWatchInterfaceUtil_new(testnetNetwork);
-		const chainWatchInterfacePointer = chainWatchInterfaceUtil.ref();
-		const chainWatchInterface = library.ChainWatchInterfaceUtil_as_ChainWatchInterface(chainWatchInterfacePointer);
-		const netGraphmessageHandler = library.NetGraphMsgHandler_new(chainWatchInterface, logger.direct);
+		// const testnetNetwork = RawFFI.CONSTANTS.LDKNetwork.LDKNetwork_Testnet;
+		// const chainWatchInterfaceUtil = library.ChainWatchInterfaceUtil_new(testnetNetwork);
+		// const chainWatchInterfacePointer = chainWatchInterfaceUtil.ref();
+		// const chainWatchInterface = library.ChainWatchInterfaceUtil_as_ChainWatchInterface(chainWatchInterfacePointer);
+
+		// const netGraphmessageHandler = library.NetGraphMsgHandler_new(chainWatchInterface, logger.direct);
+		const netGraphmessageHandler = library.NetGraphMsgHandler_new(null, logger.direct);
 		const netGraphMessageHandlerPointer = netGraphmessageHandler.ref();
 		const routingMessageHandler = library.NetGraphMsgHandler_as_RoutingMessageHandler(netGraphMessageHandlerPointer);
 

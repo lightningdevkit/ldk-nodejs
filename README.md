@@ -1,4 +1,4 @@
-# node-ldk
+# ldk-nodejs
 [![Build Status](https://travis-ci.com/arik-so/node-ldk.svg?branch=master)](https://travis-ci.com/arik-so/node-ldk)
 
 Example implementation of LDK in Node.
@@ -13,8 +13,8 @@ output from the `rust-lightning` repository – specifically, the outputs genera
 running the therein contained `genbindings.sh` script.
 
 Once generated, the compiled library should be copied to the `lib/` directory at the top
-of this project folder. It should typically be named `liblightning.dylib` or
-`liblightning.so`.
+of this project folder. It should typically be named `libldk.dylib` or
+`libldk.so`.
 
 ### Header Files
 
@@ -30,9 +30,9 @@ project.
 There are a couple steps necessary to now expose the newly added header files to
 Javascript calls.
 
-First, the C include files need to be combined into one. Simply run:
+First, the C include files need to be combined into one and sanitized. Simply run:
 
-`make merge-include-files`
+`make prep-include-files`
 
 and that should do that. Next, a Javascript FFI interface file needs to be generated
 that parses all the types in the header files and generates methods callable from
@@ -45,6 +45,6 @@ For other operating systems, the command may require slight modification.
 Lastly, to fix a couple issues with the `ffi.h` file that the previous step generated,
 simply run:
 
-`sanitize-ffi`
+`make sanitize-ffi`
 
-Voilá! 
+Voilá! You should now be good to go.

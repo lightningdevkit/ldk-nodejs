@@ -122,8 +122,8 @@ describe('Node Test', () => {
 
 		// const derefPeerManager = peerManagerPointer.deref();
 		const arikArgument: Buffer = ref.alloc(ref.types.uint8, 13);
-		const arikArgumentPointer = arikArgument.ref();
-		const firstMessage = library.PeerManager_new_outbound_connection(arikArgumentPointer, peerManagerPointer, remotePublicKeyObject, socketDescriptor);
+		// const arikArgumentPointer = arikArgument.ref();
+		// const firstMessage = library.PeerManager_new_outbound_connection(arikArgumentPointer, peerManagerPointer, remotePublicKeyObject, socketDescriptor);
 
 
 		console.log(peerManager, peerManagerPointer);

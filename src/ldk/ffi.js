@@ -108,6 +108,16 @@ exports.CONSTANTS = {
       '2': 'LDKSpendableOutputDescriptor_StaticOutputCounterpartyPayment',
       '3': 'LDKSpendableOutputDescriptor_Sentinel',
   },
+  'LDKNetwork': {
+      LDKNetwork_Bitcoin: 0,
+      LDKNetwork_Testnet: 1,
+      LDKNetwork_Regtest: 2,
+      LDKNetwork_Sentinel: 3,
+      '0': 'LDKNetwork_Bitcoin',
+      '1': 'LDKNetwork_Testnet',
+      '2': 'LDKNetwork_Regtest',
+      '3': 'LDKNetwork_Sentinel',
+  },
   'LDKNetAddress_Tag': {
       LDKNetAddress_IPv4: 0,
       LDKNetAddress_IPv6: 1,
@@ -201,11 +211,16 @@ var LDKCResultTempl_u8__ChannelMonitorUpdateErr = exports.LDKCResultTempl_u8__Ch
   result_ok: ref.types.byte,
 });
 var LDKCResultTempl_u8__ChannelMonitorUpdateErrPtr = exports.LDKCResultTempl_u8__ChannelMonitorUpdateErrPtr = ref.refType(LDKCResultTempl_u8__ChannelMonitorUpdateErr);
-var LDKMonitorUpdateError = exports.LDKMonitorUpdateError = voidPtr;
+var LDKnativeMonitorUpdateError = exports.LDKnativeMonitorUpdateError = voidPtr;
+var LDKnativeMonitorUpdateErrorPtr = exports.LDKnativeMonitorUpdateErrorPtr = ref.refType(LDKnativeMonitorUpdateError);
+var LDKMonitorUpdateError = exports.LDKMonitorUpdateError = Struct({
+  inner: LDKnativeMonitorUpdateError,
+  is_owned: ref.types.byte,
+});
 var LDKMonitorUpdateErrorPtr = exports.LDKMonitorUpdateErrorPtr = ref.refType(LDKMonitorUpdateError);
 var LDKCResultPtr_u8__MonitorUpdateError = exports.LDKCResultPtr_u8__MonitorUpdateError = Struct({
   result: uint8_tPtr,
-  err: LDKMonitorUpdateError,
+  err: LDKMonitorUpdateErrorPtr,
 });
 var LDKCResultPtr_u8__MonitorUpdateErrorPtr = exports.LDKCResultPtr_u8__MonitorUpdateErrorPtr = ref.refType(LDKCResultPtr_u8__MonitorUpdateError);
 var LDKCResultTempl_u8__MonitorUpdateError = exports.LDKCResultTempl_u8__MonitorUpdateError = Struct({
@@ -213,6 +228,18 @@ var LDKCResultTempl_u8__MonitorUpdateError = exports.LDKCResultTempl_u8__Monitor
   result_ok: ref.types.byte,
 });
 var LDKCResultTempl_u8__MonitorUpdateErrorPtr = exports.LDKCResultTempl_u8__MonitorUpdateErrorPtr = ref.refType(LDKCResultTempl_u8__MonitorUpdateError);
+var LDKnativeOutPoint = exports.LDKnativeOutPoint = voidPtr;
+var LDKnativeOutPointPtr = exports.LDKnativeOutPointPtr = ref.refType(LDKnativeOutPoint);
+var LDKOutPoint = exports.LDKOutPoint = Struct({
+  inner: LDKnativeOutPoint,
+  is_owned: ref.types.byte,
+});
+var LDKOutPointPtr = exports.LDKOutPointPtr = ref.refType(LDKOutPoint);
+var LDKC2TupleTempl_OutPoint__CVec_u8Z = exports.LDKC2TupleTempl_OutPoint__CVec_u8Z = Struct({
+  a: LDKOutPoint,
+  b: LDKCVecTempl_u8,
+});
+var LDKC2TupleTempl_OutPoint__CVec_u8ZPtr = exports.LDKC2TupleTempl_OutPoint__CVec_u8ZPtr = ref.refType(LDKC2TupleTempl_OutPoint__CVec_u8Z);
 var LDKThirtyTwoBytes = exports.LDKThirtyTwoBytes = Struct({
   data: ArrayType(ref.types.uchar, 32),
 });
@@ -288,11 +315,16 @@ var LDKCResultTempl_u8__APIError = exports.LDKCResultTempl_u8__APIError = Struct
   result_ok: ref.types.byte,
 });
 var LDKCResultTempl_u8__APIErrorPtr = exports.LDKCResultTempl_u8__APIErrorPtr = ref.refType(LDKCResultTempl_u8__APIError);
-var LDKPaymentSendFailure = exports.LDKPaymentSendFailure = voidPtr;
+var LDKnativePaymentSendFailure = exports.LDKnativePaymentSendFailure = voidPtr;
+var LDKnativePaymentSendFailurePtr = exports.LDKnativePaymentSendFailurePtr = ref.refType(LDKnativePaymentSendFailure);
+var LDKPaymentSendFailure = exports.LDKPaymentSendFailure = Struct({
+  inner: LDKnativePaymentSendFailure,
+  is_owned: ref.types.byte,
+});
 var LDKPaymentSendFailurePtr = exports.LDKPaymentSendFailurePtr = ref.refType(LDKPaymentSendFailure);
 var LDKCResultPtr_u8__PaymentSendFailure = exports.LDKCResultPtr_u8__PaymentSendFailure = Struct({
   result: uint8_tPtr,
-  err: LDKPaymentSendFailure,
+  err: LDKPaymentSendFailurePtr,
 });
 var LDKCResultPtr_u8__PaymentSendFailurePtr = exports.LDKCResultPtr_u8__PaymentSendFailurePtr = ref.refType(LDKCResultPtr_u8__PaymentSendFailure);
 var LDKCResultTempl_u8__PaymentSendFailure = exports.LDKCResultTempl_u8__PaymentSendFailure = Struct({
@@ -300,11 +332,36 @@ var LDKCResultTempl_u8__PaymentSendFailure = exports.LDKCResultTempl_u8__Payment
   result_ok: ref.types.byte,
 });
 var LDKCResultTempl_u8__PaymentSendFailurePtr = exports.LDKCResultTempl_u8__PaymentSendFailurePtr = ref.refType(LDKCResultTempl_u8__PaymentSendFailure);
-var LDKPeerHandleError = exports.LDKPeerHandleError = voidPtr;
+var LDKnativeChannelAnnouncement = exports.LDKnativeChannelAnnouncement = voidPtr;
+var LDKnativeChannelAnnouncementPtr = exports.LDKnativeChannelAnnouncementPtr = ref.refType(LDKnativeChannelAnnouncement);
+var LDKChannelAnnouncement = exports.LDKChannelAnnouncement = Struct({
+  inner: LDKnativeChannelAnnouncement,
+  is_owned: ref.types.byte,
+});
+var LDKChannelAnnouncementPtr = exports.LDKChannelAnnouncementPtr = ref.refType(LDKChannelAnnouncement);
+var LDKnativeChannelUpdate = exports.LDKnativeChannelUpdate = voidPtr;
+var LDKnativeChannelUpdatePtr = exports.LDKnativeChannelUpdatePtr = ref.refType(LDKnativeChannelUpdate);
+var LDKChannelUpdate = exports.LDKChannelUpdate = Struct({
+  inner: LDKnativeChannelUpdate,
+  is_owned: ref.types.byte,
+});
+var LDKChannelUpdatePtr = exports.LDKChannelUpdatePtr = ref.refType(LDKChannelUpdate);
+var LDKC3TupleTempl_ChannelAnnouncement__ChannelUpdate__ChannelUpdate = exports.LDKC3TupleTempl_ChannelAnnouncement__ChannelUpdate__ChannelUpdate = Struct({
+  a: LDKChannelAnnouncement,
+  b: LDKChannelUpdate,
+  c: LDKChannelUpdate,
+});
+var LDKC3TupleTempl_ChannelAnnouncement__ChannelUpdate__ChannelUpdatePtr = exports.LDKC3TupleTempl_ChannelAnnouncement__ChannelUpdate__ChannelUpdatePtr = ref.refType(LDKC3TupleTempl_ChannelAnnouncement__ChannelUpdate__ChannelUpdate);
+var LDKnativePeerHandleError = exports.LDKnativePeerHandleError = voidPtr;
+var LDKnativePeerHandleErrorPtr = exports.LDKnativePeerHandleErrorPtr = ref.refType(LDKnativePeerHandleError);
+var LDKPeerHandleError = exports.LDKPeerHandleError = Struct({
+  inner: LDKnativePeerHandleError,
+  is_owned: ref.types.byte,
+});
 var LDKPeerHandleErrorPtr = exports.LDKPeerHandleErrorPtr = ref.refType(LDKPeerHandleError);
 var LDKCResultPtr_u8__PeerHandleError = exports.LDKCResultPtr_u8__PeerHandleError = Struct({
   result: uint8_tPtr,
-  err: LDKPeerHandleError,
+  err: LDKPeerHandleErrorPtr,
 });
 var LDKCResultPtr_u8__PeerHandleErrorPtr = exports.LDKCResultPtr_u8__PeerHandleErrorPtr = ref.refType(LDKCResultPtr_u8__PeerHandleError);
 var LDKCResultTempl_u8__PeerHandleError = exports.LDKCResultTempl_u8__PeerHandleError = Struct({
@@ -312,6 +369,18 @@ var LDKCResultTempl_u8__PeerHandleError = exports.LDKCResultTempl_u8__PeerHandle
   result_ok: ref.types.byte,
 });
 var LDKCResultTempl_u8__PeerHandleErrorPtr = exports.LDKCResultTempl_u8__PeerHandleErrorPtr = ref.refType(LDKCResultTempl_u8__PeerHandleError);
+var LDKnativeHTLCOutputInCommitment = exports.LDKnativeHTLCOutputInCommitment = voidPtr;
+var LDKnativeHTLCOutputInCommitmentPtr = exports.LDKnativeHTLCOutputInCommitmentPtr = ref.refType(LDKnativeHTLCOutputInCommitment);
+var LDKHTLCOutputInCommitment = exports.LDKHTLCOutputInCommitment = Struct({
+  inner: LDKnativeHTLCOutputInCommitment,
+  is_owned: ref.types.byte,
+});
+var LDKHTLCOutputInCommitmentPtr = exports.LDKHTLCOutputInCommitmentPtr = ref.refType(LDKHTLCOutputInCommitment);
+var LDKC2TupleTempl_HTLCOutputInCommitment__Signature = exports.LDKC2TupleTempl_HTLCOutputInCommitment__Signature = Struct({
+  a: LDKHTLCOutputInCommitment,
+  b: LDKSignature,
+});
+var LDKC2TupleTempl_HTLCOutputInCommitment__SignaturePtr = exports.LDKC2TupleTempl_HTLCOutputInCommitment__SignaturePtr = ref.refType(LDKC2TupleTempl_HTLCOutputInCommitment__Signature);
 var LDKMessageSendEventsProvider = exports.LDKMessageSendEventsProvider = Struct({
   this_arg: voidPtr,
   get_and_clear_pending_msg_events: voidPtr,
@@ -330,18 +399,38 @@ var LDKLogger = exports.LDKLogger = Struct({
   free: voidPtr,
 });
 var LDKLoggerPtr = exports.LDKLoggerPtr = ref.refType(LDKLogger);
-var LDKChannelHandshakeConfig = exports.LDKChannelHandshakeConfig = voidPtr;
+var LDKnativeChannelHandshakeConfig = exports.LDKnativeChannelHandshakeConfig = voidPtr;
+var LDKnativeChannelHandshakeConfigPtr = exports.LDKnativeChannelHandshakeConfigPtr = ref.refType(LDKnativeChannelHandshakeConfig);
+var LDKChannelHandshakeConfig = exports.LDKChannelHandshakeConfig = Struct({
+  inner: LDKnativeChannelHandshakeConfig,
+  is_owned: ref.types.byte,
+});
 var LDKChannelHandshakeConfigPtr = exports.LDKChannelHandshakeConfigPtr = ref.refType(LDKChannelHandshakeConfig);
-var LDKChannelHandshakeLimits = exports.LDKChannelHandshakeLimits = voidPtr;
+var LDKnativeChannelHandshakeLimits = exports.LDKnativeChannelHandshakeLimits = voidPtr;
+var LDKnativeChannelHandshakeLimitsPtr = exports.LDKnativeChannelHandshakeLimitsPtr = ref.refType(LDKnativeChannelHandshakeLimits);
+var LDKChannelHandshakeLimits = exports.LDKChannelHandshakeLimits = Struct({
+  inner: LDKnativeChannelHandshakeLimits,
+  is_owned: ref.types.byte,
+});
 var LDKChannelHandshakeLimitsPtr = exports.LDKChannelHandshakeLimitsPtr = ref.refType(LDKChannelHandshakeLimits);
-var LDKChannelConfig = exports.LDKChannelConfig = voidPtr;
+var LDKnativeChannelConfig = exports.LDKnativeChannelConfig = voidPtr;
+var LDKnativeChannelConfigPtr = exports.LDKnativeChannelConfigPtr = ref.refType(LDKnativeChannelConfig);
+var LDKChannelConfig = exports.LDKChannelConfig = Struct({
+  inner: LDKnativeChannelConfig,
+  is_owned: ref.types.byte,
+});
 var LDKChannelConfigPtr = exports.LDKChannelConfigPtr = ref.refType(LDKChannelConfig);
 var LDKu8slice = exports.LDKu8slice = Struct({
   data: uint8_tPtr,
   datalen: ref.types.ulong,
 });
 var LDKu8slicePtr = exports.LDKu8slicePtr = ref.refType(LDKu8slice);
-var LDKUserConfig = exports.LDKUserConfig = voidPtr;
+var LDKnativeUserConfig = exports.LDKnativeUserConfig = voidPtr;
+var LDKnativeUserConfigPtr = exports.LDKnativeUserConfigPtr = ref.refType(LDKnativeUserConfig);
+var LDKUserConfig = exports.LDKUserConfig = Struct({
+  inner: LDKnativeUserConfig,
+  is_owned: ref.types.byte,
+});
 var LDKUserConfigPtr = exports.LDKUserConfigPtr = ref.refType(LDKUserConfig);
 var LDKAccess = exports.LDKAccess = Struct({
   this_arg: voidPtr,
@@ -376,23 +465,48 @@ var LDKFeeEstimator = exports.LDKFeeEstimator = Struct({
   free: voidPtr,
 });
 var LDKFeeEstimatorPtr = exports.LDKFeeEstimatorPtr = ref.refType(LDKFeeEstimator);
-var LDKChainMonitor = exports.LDKChainMonitor = voidPtr;
+var LDKnativeChainMonitor = exports.LDKnativeChainMonitor = voidPtr;
+var LDKnativeChainMonitorPtr = exports.LDKnativeChainMonitorPtr = ref.refType(LDKnativeChainMonitor);
+var LDKChainMonitor = exports.LDKChainMonitor = Struct({
+  inner: LDKnativeChainMonitor,
+  is_owned: ref.types.byte,
+});
 var LDKChainMonitorPtr = exports.LDKChainMonitorPtr = ref.refType(LDKChainMonitor);
 var LDKCVecTempl_C2TupleTempl_usize__Transaction = exports.LDKCVecTempl_C2TupleTempl_usize__Transaction = Struct({
   data: LDKC2TupleTempl_usize__TransactionPtr,
   datalen: ref.types.ulong,
 });
 var LDKCVecTempl_C2TupleTempl_usize__TransactionPtr = exports.LDKCVecTempl_C2TupleTempl_usize__TransactionPtr = ref.refType(LDKCVecTempl_C2TupleTempl_usize__Transaction);
-var LDKChannelMonitorUpdate = exports.LDKChannelMonitorUpdate = voidPtr;
+var LDKnativeChannelMonitorUpdate = exports.LDKnativeChannelMonitorUpdate = voidPtr;
+var LDKnativeChannelMonitorUpdatePtr = exports.LDKnativeChannelMonitorUpdatePtr = ref.refType(LDKnativeChannelMonitorUpdate);
+var LDKChannelMonitorUpdate = exports.LDKChannelMonitorUpdate = Struct({
+  inner: LDKnativeChannelMonitorUpdate,
+  is_owned: ref.types.byte,
+});
 var LDKChannelMonitorUpdatePtr = exports.LDKChannelMonitorUpdatePtr = ref.refType(LDKChannelMonitorUpdate);
-var LDKHTLCUpdate = exports.LDKHTLCUpdate = voidPtr;
-var LDKHTLCUpdatePtr = exports.LDKHTLCUpdatePtr = ref.refType(LDKHTLCUpdate);
-var LDKChannelMonitor = exports.LDKChannelMonitor = voidPtr;
-var LDKChannelMonitorPtr = exports.LDKChannelMonitorPtr = ref.refType(LDKChannelMonitor);
-var LDKMonitorEvent = exports.LDKMonitorEvent = voidPtr;
+var LDKnativeMonitorEvent = exports.LDKnativeMonitorEvent = voidPtr;
+var LDKnativeMonitorEventPtr = exports.LDKnativeMonitorEventPtr = ref.refType(LDKnativeMonitorEvent);
+var LDKMonitorEvent = exports.LDKMonitorEvent = Struct({
+  inner: LDKnativeMonitorEvent,
+  is_owned: ref.types.byte,
+});
 var LDKMonitorEventPtr = exports.LDKMonitorEventPtr = ref.refType(LDKMonitorEvent);
+var LDKnativeHTLCUpdate = exports.LDKnativeHTLCUpdate = voidPtr;
+var LDKnativeHTLCUpdatePtr = exports.LDKnativeHTLCUpdatePtr = ref.refType(LDKnativeHTLCUpdate);
+var LDKHTLCUpdate = exports.LDKHTLCUpdate = Struct({
+  inner: LDKnativeHTLCUpdate,
+  is_owned: ref.types.byte,
+});
+var LDKHTLCUpdatePtr = exports.LDKHTLCUpdatePtr = ref.refType(LDKHTLCUpdate);
+var LDKnativeChannelMonitor = exports.LDKnativeChannelMonitor = voidPtr;
+var LDKnativeChannelMonitorPtr = exports.LDKnativeChannelMonitorPtr = ref.refType(LDKnativeChannelMonitor);
+var LDKChannelMonitor = exports.LDKChannelMonitor = Struct({
+  inner: LDKnativeChannelMonitor,
+  is_owned: ref.types.byte,
+});
+var LDKChannelMonitorPtr = exports.LDKChannelMonitorPtr = ref.refType(LDKChannelMonitor);
 var LDKCVecTempl_MonitorEvent = exports.LDKCVecTempl_MonitorEvent = Struct({
-  data: LDKMonitorEvent,
+  data: LDKMonitorEventPtr,
   datalen: ref.types.ulong,
 });
 var LDKCVecTempl_MonitorEventPtr = exports.LDKCVecTempl_MonitorEventPtr = ref.refType(LDKCVecTempl_MonitorEvent);
@@ -413,8 +527,32 @@ var LDKCVecTempl_C2TupleTempl_ThirtyTwoBytes__CVecTempl_TxOut = exports.LDKCVecT
   datalen: ref.types.ulong,
 });
 var LDKCVecTempl_C2TupleTempl_ThirtyTwoBytes__CVecTempl_TxOutPtr = exports.LDKCVecTempl_C2TupleTempl_ThirtyTwoBytes__CVecTempl_TxOutPtr = ref.refType(LDKCVecTempl_C2TupleTempl_ThirtyTwoBytes__CVecTempl_TxOut);
-var LDKOutPoint = exports.LDKOutPoint = voidPtr;
-var LDKOutPointPtr = exports.LDKOutPointPtr = ref.refType(LDKOutPoint);
+var LDKnativeChannelPublicKeys = exports.LDKnativeChannelPublicKeys = voidPtr;
+var LDKnativeChannelPublicKeysPtr = exports.LDKnativeChannelPublicKeysPtr = ref.refType(LDKnativeChannelPublicKeys);
+var LDKChannelPublicKeys = exports.LDKChannelPublicKeys = Struct({
+  inner: LDKnativeChannelPublicKeys,
+  is_owned: ref.types.byte,
+});
+var LDKChannelPublicKeysPtr = exports.LDKChannelPublicKeysPtr = ref.refType(LDKChannelPublicKeys);
+var LDKChannelKeys = exports.LDKChannelKeys = Struct({
+  this_arg: voidPtr,
+  get_per_commitment_point: voidPtr,
+  release_commitment_secret: voidPtr,
+  pubkeys: LDKChannelPublicKeys,
+  set_pubkeys: voidPtr,
+  key_derivation_params: voidPtr,
+  sign_counterparty_commitment: voidPtr,
+  sign_holder_commitment: voidPtr,
+  sign_holder_commitment_htlc_transactions: voidPtr,
+  sign_justice_transaction: voidPtr,
+  sign_counterparty_htlc_transaction: voidPtr,
+  sign_closing_transaction: voidPtr,
+  sign_channel_announcement: voidPtr,
+  on_accept: voidPtr,
+  clone: voidPtr,
+  free: voidPtr,
+});
+var LDKChannelKeysPtr = exports.LDKChannelKeysPtr = ref.refType(LDKChannelKeys);
 var LDKKeysInterface = exports.LDKKeysInterface = Struct({
   this_arg: voidPtr,
   get_node_secret: voidPtr,
@@ -425,28 +563,60 @@ var LDKKeysInterface = exports.LDKKeysInterface = Struct({
   free: voidPtr,
 });
 var LDKKeysInterfacePtr = exports.LDKKeysInterfacePtr = ref.refType(LDKKeysInterface);
-var LDKInMemoryChannelKeys = exports.LDKInMemoryChannelKeys = voidPtr;
+var LDKnativeInMemoryChannelKeys = exports.LDKnativeInMemoryChannelKeys = voidPtr;
+var LDKnativeInMemoryChannelKeysPtr = exports.LDKnativeInMemoryChannelKeysPtr = ref.refType(LDKnativeInMemoryChannelKeys);
+var LDKInMemoryChannelKeys = exports.LDKInMemoryChannelKeys = Struct({
+  inner: LDKnativeInMemoryChannelKeys,
+  is_owned: ref.types.byte,
+});
 var LDKInMemoryChannelKeysPtr = exports.LDKInMemoryChannelKeysPtr = ref.refType(LDKInMemoryChannelKeys);
 var LDKSecretKey = exports.LDKSecretKey = Struct({
   bytes: ArrayType(ref.types.uchar, 32),
 });
 var LDKSecretKeyPtr = exports.LDKSecretKeyPtr = ref.refType(LDKSecretKey);
-var LDKKeysManager = exports.LDKKeysManager = voidPtr;
+var LDKnativeKeysManager = exports.LDKnativeKeysManager = voidPtr;
+var LDKnativeKeysManagerPtr = exports.LDKnativeKeysManagerPtr = ref.refType(LDKnativeKeysManager);
+var LDKKeysManager = exports.LDKKeysManager = Struct({
+  inner: LDKnativeKeysManager,
+  is_owned: ref.types.byte,
+});
 var LDKKeysManagerPtr = exports.LDKKeysManagerPtr = ref.refType(LDKKeysManager);
-var LDKChannelDetails = exports.LDKChannelDetails = voidPtr;
+var LDKnativeChannelManager = exports.LDKnativeChannelManager = voidPtr;
+var LDKnativeChannelManagerPtr = exports.LDKnativeChannelManagerPtr = ref.refType(LDKnativeChannelManager);
+var LDKChannelManager = exports.LDKChannelManager = Struct({
+  inner: LDKnativeChannelManager,
+  is_owned: ref.types.byte,
+});
+var LDKChannelManagerPtr = exports.LDKChannelManagerPtr = ref.refType(LDKChannelManager);
+var LDKnativeChannelDetails = exports.LDKnativeChannelDetails = voidPtr;
+var LDKnativeChannelDetailsPtr = exports.LDKnativeChannelDetailsPtr = ref.refType(LDKnativeChannelDetails);
+var LDKChannelDetails = exports.LDKChannelDetails = Struct({
+  inner: LDKnativeChannelDetails,
+  is_owned: ref.types.byte,
+});
 var LDKChannelDetailsPtr = exports.LDKChannelDetailsPtr = ref.refType(LDKChannelDetails);
 var LDKPublicKey = exports.LDKPublicKey = Struct({
   compressed_form: ArrayType(ref.types.uchar, 33),
 });
 var LDKPublicKeyPtr = exports.LDKPublicKeyPtr = ref.refType(LDKPublicKey);
-var LDKChannelManager = exports.LDKChannelManager = voidPtr;
-var LDKChannelManagerPtr = exports.LDKChannelManagerPtr = ref.refType(LDKChannelManager);
+var LDKnativeInitFeatures = exports.LDKnativeInitFeatures = voidPtr;
+var LDKnativeInitFeaturesPtr = exports.LDKnativeInitFeaturesPtr = ref.refType(LDKnativeInitFeatures);
+var LDKInitFeatures = exports.LDKInitFeatures = Struct({
+  inner: LDKnativeInitFeatures,
+  is_owned: ref.types.byte,
+});
+var LDKInitFeaturesPtr = exports.LDKInitFeaturesPtr = ref.refType(LDKInitFeatures);
 var LDKCVecTempl_ChannelDetails = exports.LDKCVecTempl_ChannelDetails = Struct({
   data: LDKChannelDetailsPtr,
   datalen: ref.types.ulong,
 });
 var LDKCVecTempl_ChannelDetailsPtr = exports.LDKCVecTempl_ChannelDetailsPtr = ref.refType(LDKCVecTempl_ChannelDetails);
-var LDKRoute = exports.LDKRoute = voidPtr;
+var LDKnativeRoute = exports.LDKnativeRoute = voidPtr;
+var LDKnativeRoutePtr = exports.LDKnativeRoutePtr = ref.refType(LDKnativeRoute);
+var LDKRoute = exports.LDKRoute = Struct({
+  inner: LDKnativeRoute,
+  is_owned: ref.types.byte,
+});
 var LDKRoutePtr = exports.LDKRoutePtr = ref.refType(LDKRoute);
 var LDKThreeBytes = exports.LDKThreeBytes = Struct({
   data: ArrayType(ref.types.uchar, 3),
@@ -484,73 +654,232 @@ var LDKChannelMessageHandler = exports.LDKChannelMessageHandler = Struct({
   free: voidPtr,
 });
 var LDKChannelMessageHandlerPtr = exports.LDKChannelMessageHandlerPtr = ref.refType(LDKChannelMessageHandler);
-var LDKChannelManagerReadArgs = exports.LDKChannelManagerReadArgs = voidPtr;
+var LDKnativeChannelManagerReadArgs = exports.LDKnativeChannelManagerReadArgs = voidPtr;
+var LDKnativeChannelManagerReadArgsPtr = exports.LDKnativeChannelManagerReadArgsPtr = ref.refType(LDKnativeChannelManagerReadArgs);
+var LDKChannelManagerReadArgs = exports.LDKChannelManagerReadArgs = Struct({
+  inner: LDKnativeChannelManagerReadArgs,
+  is_owned: ref.types.byte,
+});
 var LDKChannelManagerReadArgsPtr = exports.LDKChannelManagerReadArgsPtr = ref.refType(LDKChannelManagerReadArgs);
 var LDKCVecTempl_ChannelMonitor = exports.LDKCVecTempl_ChannelMonitor = Struct({
   data: LDKChannelMonitorPtr,
   datalen: ref.types.ulong,
 });
 var LDKCVecTempl_ChannelMonitorPtr = exports.LDKCVecTempl_ChannelMonitorPtr = ref.refType(LDKCVecTempl_ChannelMonitor);
-var LDKErrorMessage = exports.LDKErrorMessage = voidPtr;
+var LDKnativeDecodeError = exports.LDKnativeDecodeError = voidPtr;
+var LDKnativeDecodeErrorPtr = exports.LDKnativeDecodeErrorPtr = ref.refType(LDKnativeDecodeError);
+var LDKDecodeError = exports.LDKDecodeError = Struct({
+  inner: LDKnativeDecodeError,
+  is_owned: ref.types.byte,
+});
+var LDKDecodeErrorPtr = exports.LDKDecodeErrorPtr = ref.refType(LDKDecodeError);
+var LDKnativeInit = exports.LDKnativeInit = voidPtr;
+var LDKnativeInitPtr = exports.LDKnativeInitPtr = ref.refType(LDKnativeInit);
+var LDKInit = exports.LDKInit = Struct({
+  inner: LDKnativeInit,
+  is_owned: ref.types.byte,
+});
+var LDKInitPtr = exports.LDKInitPtr = ref.refType(LDKInit);
+var LDKnativeErrorMessage = exports.LDKnativeErrorMessage = voidPtr;
+var LDKnativeErrorMessagePtr = exports.LDKnativeErrorMessagePtr = ref.refType(LDKnativeErrorMessage);
+var LDKErrorMessage = exports.LDKErrorMessage = Struct({
+  inner: LDKnativeErrorMessage,
+  is_owned: ref.types.byte,
+});
 var LDKErrorMessagePtr = exports.LDKErrorMessagePtr = ref.refType(LDKErrorMessage);
 var LDKStr = exports.LDKStr = Struct({
   chars: uint8_tPtr,
   len: ref.types.ulong,
 });
 var LDKStrPtr = exports.LDKStrPtr = ref.refType(LDKStr);
-var LDKPing = exports.LDKPing = voidPtr;
+var LDKnativePing = exports.LDKnativePing = voidPtr;
+var LDKnativePingPtr = exports.LDKnativePingPtr = ref.refType(LDKnativePing);
+var LDKPing = exports.LDKPing = Struct({
+  inner: LDKnativePing,
+  is_owned: ref.types.byte,
+});
 var LDKPingPtr = exports.LDKPingPtr = ref.refType(LDKPing);
-var LDKPong = exports.LDKPong = voidPtr;
+var LDKnativePong = exports.LDKnativePong = voidPtr;
+var LDKnativePongPtr = exports.LDKnativePongPtr = ref.refType(LDKnativePong);
+var LDKPong = exports.LDKPong = Struct({
+  inner: LDKnativePong,
+  is_owned: ref.types.byte,
+});
 var LDKPongPtr = exports.LDKPongPtr = ref.refType(LDKPong);
-var LDKOpenChannel = exports.LDKOpenChannel = voidPtr;
+var LDKnativeOpenChannel = exports.LDKnativeOpenChannel = voidPtr;
+var LDKnativeOpenChannelPtr = exports.LDKnativeOpenChannelPtr = ref.refType(LDKnativeOpenChannel);
+var LDKOpenChannel = exports.LDKOpenChannel = Struct({
+  inner: LDKnativeOpenChannel,
+  is_owned: ref.types.byte,
+});
 var LDKOpenChannelPtr = exports.LDKOpenChannelPtr = ref.refType(LDKOpenChannel);
-var LDKAcceptChannel = exports.LDKAcceptChannel = voidPtr;
+var LDKnativeAcceptChannel = exports.LDKnativeAcceptChannel = voidPtr;
+var LDKnativeAcceptChannelPtr = exports.LDKnativeAcceptChannelPtr = ref.refType(LDKnativeAcceptChannel);
+var LDKAcceptChannel = exports.LDKAcceptChannel = Struct({
+  inner: LDKnativeAcceptChannel,
+  is_owned: ref.types.byte,
+});
 var LDKAcceptChannelPtr = exports.LDKAcceptChannelPtr = ref.refType(LDKAcceptChannel);
-var LDKFundingCreated = exports.LDKFundingCreated = voidPtr;
+var LDKnativeFundingCreated = exports.LDKnativeFundingCreated = voidPtr;
+var LDKnativeFundingCreatedPtr = exports.LDKnativeFundingCreatedPtr = ref.refType(LDKnativeFundingCreated);
+var LDKFundingCreated = exports.LDKFundingCreated = Struct({
+  inner: LDKnativeFundingCreated,
+  is_owned: ref.types.byte,
+});
 var LDKFundingCreatedPtr = exports.LDKFundingCreatedPtr = ref.refType(LDKFundingCreated);
-var LDKFundingSigned = exports.LDKFundingSigned = voidPtr;
+var LDKnativeFundingSigned = exports.LDKnativeFundingSigned = voidPtr;
+var LDKnativeFundingSignedPtr = exports.LDKnativeFundingSignedPtr = ref.refType(LDKnativeFundingSigned);
+var LDKFundingSigned = exports.LDKFundingSigned = Struct({
+  inner: LDKnativeFundingSigned,
+  is_owned: ref.types.byte,
+});
 var LDKFundingSignedPtr = exports.LDKFundingSignedPtr = ref.refType(LDKFundingSigned);
-var LDKFundingLocked = exports.LDKFundingLocked = voidPtr;
+var LDKnativeFundingLocked = exports.LDKnativeFundingLocked = voidPtr;
+var LDKnativeFundingLockedPtr = exports.LDKnativeFundingLockedPtr = ref.refType(LDKnativeFundingLocked);
+var LDKFundingLocked = exports.LDKFundingLocked = Struct({
+  inner: LDKnativeFundingLocked,
+  is_owned: ref.types.byte,
+});
 var LDKFundingLockedPtr = exports.LDKFundingLockedPtr = ref.refType(LDKFundingLocked);
-var LDKShutdown = exports.LDKShutdown = voidPtr;
+var LDKnativeShutdown = exports.LDKnativeShutdown = voidPtr;
+var LDKnativeShutdownPtr = exports.LDKnativeShutdownPtr = ref.refType(LDKnativeShutdown);
+var LDKShutdown = exports.LDKShutdown = Struct({
+  inner: LDKnativeShutdown,
+  is_owned: ref.types.byte,
+});
 var LDKShutdownPtr = exports.LDKShutdownPtr = ref.refType(LDKShutdown);
-var LDKClosingSigned = exports.LDKClosingSigned = voidPtr;
+var LDKnativeClosingSigned = exports.LDKnativeClosingSigned = voidPtr;
+var LDKnativeClosingSignedPtr = exports.LDKnativeClosingSignedPtr = ref.refType(LDKnativeClosingSigned);
+var LDKClosingSigned = exports.LDKClosingSigned = Struct({
+  inner: LDKnativeClosingSigned,
+  is_owned: ref.types.byte,
+});
 var LDKClosingSignedPtr = exports.LDKClosingSignedPtr = ref.refType(LDKClosingSigned);
-var LDKUpdateAddHTLC = exports.LDKUpdateAddHTLC = voidPtr;
+var LDKnativeUpdateAddHTLC = exports.LDKnativeUpdateAddHTLC = voidPtr;
+var LDKnativeUpdateAddHTLCPtr = exports.LDKnativeUpdateAddHTLCPtr = ref.refType(LDKnativeUpdateAddHTLC);
+var LDKUpdateAddHTLC = exports.LDKUpdateAddHTLC = Struct({
+  inner: LDKnativeUpdateAddHTLC,
+  is_owned: ref.types.byte,
+});
 var LDKUpdateAddHTLCPtr = exports.LDKUpdateAddHTLCPtr = ref.refType(LDKUpdateAddHTLC);
-var LDKUpdateFulfillHTLC = exports.LDKUpdateFulfillHTLC = voidPtr;
+var LDKnativeUpdateFulfillHTLC = exports.LDKnativeUpdateFulfillHTLC = voidPtr;
+var LDKnativeUpdateFulfillHTLCPtr = exports.LDKnativeUpdateFulfillHTLCPtr = ref.refType(LDKnativeUpdateFulfillHTLC);
+var LDKUpdateFulfillHTLC = exports.LDKUpdateFulfillHTLC = Struct({
+  inner: LDKnativeUpdateFulfillHTLC,
+  is_owned: ref.types.byte,
+});
 var LDKUpdateFulfillHTLCPtr = exports.LDKUpdateFulfillHTLCPtr = ref.refType(LDKUpdateFulfillHTLC);
-var LDKUpdateFailHTLC = exports.LDKUpdateFailHTLC = voidPtr;
+var LDKnativeUpdateFailHTLC = exports.LDKnativeUpdateFailHTLC = voidPtr;
+var LDKnativeUpdateFailHTLCPtr = exports.LDKnativeUpdateFailHTLCPtr = ref.refType(LDKnativeUpdateFailHTLC);
+var LDKUpdateFailHTLC = exports.LDKUpdateFailHTLC = Struct({
+  inner: LDKnativeUpdateFailHTLC,
+  is_owned: ref.types.byte,
+});
 var LDKUpdateFailHTLCPtr = exports.LDKUpdateFailHTLCPtr = ref.refType(LDKUpdateFailHTLC);
-var LDKUpdateFailMalformedHTLC = exports.LDKUpdateFailMalformedHTLC = voidPtr;
+var LDKnativeUpdateFailMalformedHTLC = exports.LDKnativeUpdateFailMalformedHTLC = voidPtr;
+var LDKnativeUpdateFailMalformedHTLCPtr = exports.LDKnativeUpdateFailMalformedHTLCPtr = ref.refType(LDKnativeUpdateFailMalformedHTLC);
+var LDKUpdateFailMalformedHTLC = exports.LDKUpdateFailMalformedHTLC = Struct({
+  inner: LDKnativeUpdateFailMalformedHTLC,
+  is_owned: ref.types.byte,
+});
 var LDKUpdateFailMalformedHTLCPtr = exports.LDKUpdateFailMalformedHTLCPtr = ref.refType(LDKUpdateFailMalformedHTLC);
-var LDKCommitmentSigned = exports.LDKCommitmentSigned = voidPtr;
+var LDKnativeCommitmentSigned = exports.LDKnativeCommitmentSigned = voidPtr;
+var LDKnativeCommitmentSignedPtr = exports.LDKnativeCommitmentSignedPtr = ref.refType(LDKnativeCommitmentSigned);
+var LDKCommitmentSigned = exports.LDKCommitmentSigned = Struct({
+  inner: LDKnativeCommitmentSigned,
+  is_owned: ref.types.byte,
+});
 var LDKCommitmentSignedPtr = exports.LDKCommitmentSignedPtr = ref.refType(LDKCommitmentSigned);
-var LDKRevokeAndACK = exports.LDKRevokeAndACK = voidPtr;
+var LDKnativeRevokeAndACK = exports.LDKnativeRevokeAndACK = voidPtr;
+var LDKnativeRevokeAndACKPtr = exports.LDKnativeRevokeAndACKPtr = ref.refType(LDKnativeRevokeAndACK);
+var LDKRevokeAndACK = exports.LDKRevokeAndACK = Struct({
+  inner: LDKnativeRevokeAndACK,
+  is_owned: ref.types.byte,
+});
 var LDKRevokeAndACKPtr = exports.LDKRevokeAndACKPtr = ref.refType(LDKRevokeAndACK);
-var LDKUpdateFee = exports.LDKUpdateFee = voidPtr;
+var LDKnativeUpdateFee = exports.LDKnativeUpdateFee = voidPtr;
+var LDKnativeUpdateFeePtr = exports.LDKnativeUpdateFeePtr = ref.refType(LDKnativeUpdateFee);
+var LDKUpdateFee = exports.LDKUpdateFee = Struct({
+  inner: LDKnativeUpdateFee,
+  is_owned: ref.types.byte,
+});
 var LDKUpdateFeePtr = exports.LDKUpdateFeePtr = ref.refType(LDKUpdateFee);
-var LDKDataLossProtect = exports.LDKDataLossProtect = voidPtr;
+var LDKnativeDataLossProtect = exports.LDKnativeDataLossProtect = voidPtr;
+var LDKnativeDataLossProtectPtr = exports.LDKnativeDataLossProtectPtr = ref.refType(LDKnativeDataLossProtect);
+var LDKDataLossProtect = exports.LDKDataLossProtect = Struct({
+  inner: LDKnativeDataLossProtect,
+  is_owned: ref.types.byte,
+});
 var LDKDataLossProtectPtr = exports.LDKDataLossProtectPtr = ref.refType(LDKDataLossProtect);
-var LDKChannelReestablish = exports.LDKChannelReestablish = voidPtr;
+var LDKnativeChannelReestablish = exports.LDKnativeChannelReestablish = voidPtr;
+var LDKnativeChannelReestablishPtr = exports.LDKnativeChannelReestablishPtr = ref.refType(LDKnativeChannelReestablish);
+var LDKChannelReestablish = exports.LDKChannelReestablish = Struct({
+  inner: LDKnativeChannelReestablish,
+  is_owned: ref.types.byte,
+});
 var LDKChannelReestablishPtr = exports.LDKChannelReestablishPtr = ref.refType(LDKChannelReestablish);
-var LDKAnnouncementSignatures = exports.LDKAnnouncementSignatures = voidPtr;
+var LDKnativeAnnouncementSignatures = exports.LDKnativeAnnouncementSignatures = voidPtr;
+var LDKnativeAnnouncementSignaturesPtr = exports.LDKnativeAnnouncementSignaturesPtr = ref.refType(LDKnativeAnnouncementSignatures);
+var LDKAnnouncementSignatures = exports.LDKAnnouncementSignatures = Struct({
+  inner: LDKnativeAnnouncementSignatures,
+  is_owned: ref.types.byte,
+});
 var LDKAnnouncementSignaturesPtr = exports.LDKAnnouncementSignaturesPtr = ref.refType(LDKAnnouncementSignatures);
-var LDKUnsignedNodeAnnouncement = exports.LDKUnsignedNodeAnnouncement = voidPtr;
+var LDKnativeUnsignedNodeAnnouncement = exports.LDKnativeUnsignedNodeAnnouncement = voidPtr;
+var LDKnativeUnsignedNodeAnnouncementPtr = exports.LDKnativeUnsignedNodeAnnouncementPtr = ref.refType(LDKnativeUnsignedNodeAnnouncement);
+var LDKUnsignedNodeAnnouncement = exports.LDKUnsignedNodeAnnouncement = Struct({
+  inner: LDKnativeUnsignedNodeAnnouncement,
+  is_owned: ref.types.byte,
+});
 var LDKUnsignedNodeAnnouncementPtr = exports.LDKUnsignedNodeAnnouncementPtr = ref.refType(LDKUnsignedNodeAnnouncement);
-var LDKNodeAnnouncement = exports.LDKNodeAnnouncement = voidPtr;
+var LDKnativeNodeFeatures = exports.LDKnativeNodeFeatures = voidPtr;
+var LDKnativeNodeFeaturesPtr = exports.LDKnativeNodeFeaturesPtr = ref.refType(LDKnativeNodeFeatures);
+var LDKNodeFeatures = exports.LDKNodeFeatures = Struct({
+  inner: LDKnativeNodeFeatures,
+  is_owned: ref.types.byte,
+});
+var LDKNodeFeaturesPtr = exports.LDKNodeFeaturesPtr = ref.refType(LDKNodeFeatures);
+var LDKnativeNodeAnnouncement = exports.LDKnativeNodeAnnouncement = voidPtr;
+var LDKnativeNodeAnnouncementPtr = exports.LDKnativeNodeAnnouncementPtr = ref.refType(LDKnativeNodeAnnouncement);
+var LDKNodeAnnouncement = exports.LDKNodeAnnouncement = Struct({
+  inner: LDKnativeNodeAnnouncement,
+  is_owned: ref.types.byte,
+});
 var LDKNodeAnnouncementPtr = exports.LDKNodeAnnouncementPtr = ref.refType(LDKNodeAnnouncement);
-var LDKUnsignedChannelAnnouncement = exports.LDKUnsignedChannelAnnouncement = voidPtr;
+var LDKnativeUnsignedChannelAnnouncement = exports.LDKnativeUnsignedChannelAnnouncement = voidPtr;
+var LDKnativeUnsignedChannelAnnouncementPtr = exports.LDKnativeUnsignedChannelAnnouncementPtr = ref.refType(LDKnativeUnsignedChannelAnnouncement);
+var LDKUnsignedChannelAnnouncement = exports.LDKUnsignedChannelAnnouncement = Struct({
+  inner: LDKnativeUnsignedChannelAnnouncement,
+  is_owned: ref.types.byte,
+});
 var LDKUnsignedChannelAnnouncementPtr = exports.LDKUnsignedChannelAnnouncementPtr = ref.refType(LDKUnsignedChannelAnnouncement);
-var LDKChannelAnnouncement = exports.LDKChannelAnnouncement = voidPtr;
-var LDKChannelAnnouncementPtr = exports.LDKChannelAnnouncementPtr = ref.refType(LDKChannelAnnouncement);
-var LDKUnsignedChannelUpdate = exports.LDKUnsignedChannelUpdate = voidPtr;
+var LDKnativeChannelFeatures = exports.LDKnativeChannelFeatures = voidPtr;
+var LDKnativeChannelFeaturesPtr = exports.LDKnativeChannelFeaturesPtr = ref.refType(LDKnativeChannelFeatures);
+var LDKChannelFeatures = exports.LDKChannelFeatures = Struct({
+  inner: LDKnativeChannelFeatures,
+  is_owned: ref.types.byte,
+});
+var LDKChannelFeaturesPtr = exports.LDKChannelFeaturesPtr = ref.refType(LDKChannelFeatures);
+var LDKnativeUnsignedChannelUpdate = exports.LDKnativeUnsignedChannelUpdate = voidPtr;
+var LDKnativeUnsignedChannelUpdatePtr = exports.LDKnativeUnsignedChannelUpdatePtr = ref.refType(LDKnativeUnsignedChannelUpdate);
+var LDKUnsignedChannelUpdate = exports.LDKUnsignedChannelUpdate = Struct({
+  inner: LDKnativeUnsignedChannelUpdate,
+  is_owned: ref.types.byte,
+});
 var LDKUnsignedChannelUpdatePtr = exports.LDKUnsignedChannelUpdatePtr = ref.refType(LDKUnsignedChannelUpdate);
-var LDKChannelUpdate = exports.LDKChannelUpdate = voidPtr;
-var LDKChannelUpdatePtr = exports.LDKChannelUpdatePtr = ref.refType(LDKChannelUpdate);
-var LDKQueryChannelRange = exports.LDKQueryChannelRange = voidPtr;
+var LDKnativeQueryChannelRange = exports.LDKnativeQueryChannelRange = voidPtr;
+var LDKnativeQueryChannelRangePtr = exports.LDKnativeQueryChannelRangePtr = ref.refType(LDKnativeQueryChannelRange);
+var LDKQueryChannelRange = exports.LDKQueryChannelRange = Struct({
+  inner: LDKnativeQueryChannelRange,
+  is_owned: ref.types.byte,
+});
 var LDKQueryChannelRangePtr = exports.LDKQueryChannelRangePtr = ref.refType(LDKQueryChannelRange);
-var LDKReplyChannelRange = exports.LDKReplyChannelRange = voidPtr;
+var LDKnativeReplyChannelRange = exports.LDKnativeReplyChannelRange = voidPtr;
+var LDKnativeReplyChannelRangePtr = exports.LDKnativeReplyChannelRangePtr = ref.refType(LDKnativeReplyChannelRange);
+var LDKReplyChannelRange = exports.LDKReplyChannelRange = Struct({
+  inner: LDKnativeReplyChannelRange,
+  is_owned: ref.types.byte,
+});
 var LDKReplyChannelRangePtr = exports.LDKReplyChannelRangePtr = ref.refType(LDKReplyChannelRange);
 var uint64_t = exports.uint64_t = voidPtr;
 var uint64_tPtr = exports.uint64_tPtr = ref.refType(uint64_t);
@@ -559,15 +888,40 @@ var LDKCVecTempl_u64 = exports.LDKCVecTempl_u64 = Struct({
   datalen: ref.types.ulong,
 });
 var LDKCVecTempl_u64Ptr = exports.LDKCVecTempl_u64Ptr = ref.refType(LDKCVecTempl_u64);
-var LDKQueryShortChannelIds = exports.LDKQueryShortChannelIds = voidPtr;
+var LDKnativeQueryShortChannelIds = exports.LDKnativeQueryShortChannelIds = voidPtr;
+var LDKnativeQueryShortChannelIdsPtr = exports.LDKnativeQueryShortChannelIdsPtr = ref.refType(LDKnativeQueryShortChannelIds);
+var LDKQueryShortChannelIds = exports.LDKQueryShortChannelIds = Struct({
+  inner: LDKnativeQueryShortChannelIds,
+  is_owned: ref.types.byte,
+});
 var LDKQueryShortChannelIdsPtr = exports.LDKQueryShortChannelIdsPtr = ref.refType(LDKQueryShortChannelIds);
-var LDKReplyShortChannelIdsEnd = exports.LDKReplyShortChannelIdsEnd = voidPtr;
+var LDKnativeReplyShortChannelIdsEnd = exports.LDKnativeReplyShortChannelIdsEnd = voidPtr;
+var LDKnativeReplyShortChannelIdsEndPtr = exports.LDKnativeReplyShortChannelIdsEndPtr = ref.refType(LDKnativeReplyShortChannelIdsEnd);
+var LDKReplyShortChannelIdsEnd = exports.LDKReplyShortChannelIdsEnd = Struct({
+  inner: LDKnativeReplyShortChannelIdsEnd,
+  is_owned: ref.types.byte,
+});
 var LDKReplyShortChannelIdsEndPtr = exports.LDKReplyShortChannelIdsEndPtr = ref.refType(LDKReplyShortChannelIdsEnd);
-var LDKGossipTimestampFilter = exports.LDKGossipTimestampFilter = voidPtr;
+var LDKnativeGossipTimestampFilter = exports.LDKnativeGossipTimestampFilter = voidPtr;
+var LDKnativeGossipTimestampFilterPtr = exports.LDKnativeGossipTimestampFilterPtr = ref.refType(LDKnativeGossipTimestampFilter);
+var LDKGossipTimestampFilter = exports.LDKGossipTimestampFilter = Struct({
+  inner: LDKnativeGossipTimestampFilter,
+  is_owned: ref.types.byte,
+});
 var LDKGossipTimestampFilterPtr = exports.LDKGossipTimestampFilterPtr = ref.refType(LDKGossipTimestampFilter);
-var LDKLightningError = exports.LDKLightningError = voidPtr;
+var LDKnativeLightningError = exports.LDKnativeLightningError = voidPtr;
+var LDKnativeLightningErrorPtr = exports.LDKnativeLightningErrorPtr = ref.refType(LDKnativeLightningError);
+var LDKLightningError = exports.LDKLightningError = Struct({
+  inner: LDKnativeLightningError,
+  is_owned: ref.types.byte,
+});
 var LDKLightningErrorPtr = exports.LDKLightningErrorPtr = ref.refType(LDKLightningError);
-var LDKCommitmentUpdate = exports.LDKCommitmentUpdate = voidPtr;
+var LDKnativeCommitmentUpdate = exports.LDKnativeCommitmentUpdate = voidPtr;
+var LDKnativeCommitmentUpdatePtr = exports.LDKnativeCommitmentUpdatePtr = ref.refType(LDKnativeCommitmentUpdate);
+var LDKCommitmentUpdate = exports.LDKCommitmentUpdate = Struct({
+  inner: LDKnativeCommitmentUpdate,
+  is_owned: ref.types.byte,
+});
 var LDKCommitmentUpdatePtr = exports.LDKCommitmentUpdatePtr = ref.refType(LDKCommitmentUpdate);
 var LDKCVecTempl_UpdateAddHTLC = exports.LDKCVecTempl_UpdateAddHTLC = Struct({
   data: LDKUpdateAddHTLCPtr,
@@ -601,9 +955,12 @@ var LDKRoutingMessageHandler = exports.LDKRoutingMessageHandler = Struct({
   free: voidPtr,
 });
 var LDKRoutingMessageHandlerPtr = exports.LDKRoutingMessageHandlerPtr = ref.refType(LDKRoutingMessageHandler);
-var LDKInit = exports.LDKInit = voidPtr;
-var LDKInitPtr = exports.LDKInitPtr = ref.refType(LDKInit);
-var LDKMessageHandler = exports.LDKMessageHandler = voidPtr;
+var LDKnativeMessageHandler = exports.LDKnativeMessageHandler = voidPtr;
+var LDKnativeMessageHandlerPtr = exports.LDKnativeMessageHandlerPtr = ref.refType(LDKnativeMessageHandler);
+var LDKMessageHandler = exports.LDKMessageHandler = Struct({
+  inner: LDKnativeMessageHandler,
+  is_owned: ref.types.byte,
+});
 var LDKMessageHandlerPtr = exports.LDKMessageHandlerPtr = ref.refType(LDKMessageHandler);
 var LDKSocketDescriptor = exports.LDKSocketDescriptor = Struct({
   this_arg: voidPtr,
@@ -615,13 +972,18 @@ var LDKSocketDescriptor = exports.LDKSocketDescriptor = Struct({
   free: voidPtr,
 });
 var LDKSocketDescriptorPtr = exports.LDKSocketDescriptorPtr = ref.refType(LDKSocketDescriptor);
+var LDKnativePeerManager = exports.LDKnativePeerManager = voidPtr;
+var LDKnativePeerManagerPtr = exports.LDKnativePeerManagerPtr = ref.refType(LDKnativePeerManager);
+var LDKPeerManager = exports.LDKPeerManager = Struct({
+  inner: LDKnativePeerManager,
+  is_owned: ref.types.byte,
+});
+var LDKPeerManagerPtr = exports.LDKPeerManagerPtr = ref.refType(LDKPeerManager);
 var LDKCVecTempl_PublicKey = exports.LDKCVecTempl_PublicKey = Struct({
   data: LDKPublicKeyPtr,
   datalen: ref.types.ulong,
 });
 var LDKCVecTempl_PublicKeyPtr = exports.LDKCVecTempl_PublicKeyPtr = ref.refType(LDKCVecTempl_PublicKey);
-var LDKPeerManager = exports.LDKPeerManager = voidPtr;
-var LDKPeerManagerPtr = exports.LDKPeerManagerPtr = ref.refType(LDKPeerManager);
 var LDKCResultPtr_CVecTempl_u8_____PeerHandleError = exports.LDKCResultPtr_CVecTempl_u8_____PeerHandleError = Struct({
   result: LDKCVecTempl_u8Ptr,
   err: LDKPeerHandleErrorPtr,
@@ -666,12 +1028,20 @@ var LDKCResultTempl_PublicKey__Secp256k1Error = exports.LDKCResultTempl_PublicKe
   result_ok: ref.types.byte,
 });
 var LDKCResultTempl_PublicKey__Secp256k1ErrorPtr = exports.LDKCResultTempl_PublicKey__Secp256k1ErrorPtr = ref.refType(LDKCResultTempl_PublicKey__Secp256k1Error);
-var LDKTxCreationKeys = exports.LDKTxCreationKeys = voidPtr;
+var LDKnativeTxCreationKeys = exports.LDKnativeTxCreationKeys = voidPtr;
+var LDKnativeTxCreationKeysPtr = exports.LDKnativeTxCreationKeysPtr = ref.refType(LDKnativeTxCreationKeys);
+var LDKTxCreationKeys = exports.LDKTxCreationKeys = Struct({
+  inner: LDKnativeTxCreationKeys,
+  is_owned: ref.types.byte,
+});
 var LDKTxCreationKeysPtr = exports.LDKTxCreationKeysPtr = ref.refType(LDKTxCreationKeys);
-var LDKPreCalculatedTxCreationKeys = exports.LDKPreCalculatedTxCreationKeys = voidPtr;
+var LDKnativePreCalculatedTxCreationKeys = exports.LDKnativePreCalculatedTxCreationKeys = voidPtr;
+var LDKnativePreCalculatedTxCreationKeysPtr = exports.LDKnativePreCalculatedTxCreationKeysPtr = ref.refType(LDKnativePreCalculatedTxCreationKeys);
+var LDKPreCalculatedTxCreationKeys = exports.LDKPreCalculatedTxCreationKeys = Struct({
+  inner: LDKnativePreCalculatedTxCreationKeys,
+  is_owned: ref.types.byte,
+});
 var LDKPreCalculatedTxCreationKeysPtr = exports.LDKPreCalculatedTxCreationKeysPtr = ref.refType(LDKPreCalculatedTxCreationKeys);
-var LDKChannelPublicKeys = exports.LDKChannelPublicKeys = voidPtr;
-var LDKChannelPublicKeysPtr = exports.LDKChannelPublicKeysPtr = ref.refType(LDKChannelPublicKeys);
 var LDKCResultPtr_TxCreationKeys__Secp256k1Error = exports.LDKCResultPtr_TxCreationKeys__Secp256k1Error = Struct({
   result: LDKTxCreationKeysPtr,
   err: LDKSecp256k1ErrorPtr,
@@ -682,21 +1052,24 @@ var LDKCResultTempl_TxCreationKeys__Secp256k1Error = exports.LDKCResultTempl_TxC
   result_ok: ref.types.byte,
 });
 var LDKCResultTempl_TxCreationKeys__Secp256k1ErrorPtr = exports.LDKCResultTempl_TxCreationKeys__Secp256k1ErrorPtr = ref.refType(LDKCResultTempl_TxCreationKeys__Secp256k1Error);
-var LDKHTLCOutputInCommitment = exports.LDKHTLCOutputInCommitment = voidPtr;
-var LDKHTLCOutputInCommitmentPtr = exports.LDKHTLCOutputInCommitmentPtr = ref.refType(LDKHTLCOutputInCommitment);
-var LDKHolderCommitmentTransaction = exports.LDKHolderCommitmentTransaction = voidPtr;
-var LDKHolderCommitmentTransactionPtr = exports.LDKHolderCommitmentTransactionPtr = ref.refType(LDKHolderCommitmentTransaction);
-var LDKC2TupleTempl_HTLCOutputInCommitment__Signature = exports.LDKC2TupleTempl_HTLCOutputInCommitment__Signature = Struct({
-  a: LDKHTLCOutputInCommitment,
-  b: LDKSignature,
+var LDKnativeHolderCommitmentTransaction = exports.LDKnativeHolderCommitmentTransaction = voidPtr;
+var LDKnativeHolderCommitmentTransactionPtr = exports.LDKnativeHolderCommitmentTransactionPtr = ref.refType(LDKnativeHolderCommitmentTransaction);
+var LDKHolderCommitmentTransaction = exports.LDKHolderCommitmentTransaction = Struct({
+  inner: LDKnativeHolderCommitmentTransaction,
+  is_owned: ref.types.byte,
 });
-var LDKC2TupleTempl_HTLCOutputInCommitment__SignaturePtr = exports.LDKC2TupleTempl_HTLCOutputInCommitment__SignaturePtr = ref.refType(LDKC2TupleTempl_HTLCOutputInCommitment__Signature);
+var LDKHolderCommitmentTransactionPtr = exports.LDKHolderCommitmentTransactionPtr = ref.refType(LDKHolderCommitmentTransaction);
 var LDKCVecTempl_C2TupleTempl_HTLCOutputInCommitment__Signature = exports.LDKCVecTempl_C2TupleTempl_HTLCOutputInCommitment__Signature = Struct({
   data: LDKC2TupleTempl_HTLCOutputInCommitment__SignaturePtr,
   datalen: ref.types.ulong,
 });
 var LDKCVecTempl_C2TupleTempl_HTLCOutputInCommitment__SignaturePtr = exports.LDKCVecTempl_C2TupleTempl_HTLCOutputInCommitment__SignaturePtr = ref.refType(LDKCVecTempl_C2TupleTempl_HTLCOutputInCommitment__Signature);
-var LDKRouteHop = exports.LDKRouteHop = voidPtr;
+var LDKnativeRouteHop = exports.LDKnativeRouteHop = voidPtr;
+var LDKnativeRouteHopPtr = exports.LDKnativeRouteHopPtr = ref.refType(LDKnativeRouteHop);
+var LDKRouteHop = exports.LDKRouteHop = Struct({
+  inner: LDKnativeRouteHop,
+  is_owned: ref.types.byte,
+});
 var LDKRouteHopPtr = exports.LDKRouteHopPtr = ref.refType(LDKRouteHop);
 var LDKCVecTempl_RouteHop = exports.LDKCVecTempl_RouteHop = Struct({
   data: LDKRouteHopPtr,
@@ -708,8 +1081,20 @@ var LDKCVecTempl_CVecTempl_RouteHop = exports.LDKCVecTempl_CVecTempl_RouteHop = 
   datalen: ref.types.ulong,
 });
 var LDKCVecTempl_CVecTempl_RouteHopPtr = exports.LDKCVecTempl_CVecTempl_RouteHopPtr = ref.refType(LDKCVecTempl_CVecTempl_RouteHop);
-var LDKRouteHint = exports.LDKRouteHint = voidPtr;
+var LDKnativeRouteHint = exports.LDKnativeRouteHint = voidPtr;
+var LDKnativeRouteHintPtr = exports.LDKnativeRouteHintPtr = ref.refType(LDKnativeRouteHint);
+var LDKRouteHint = exports.LDKRouteHint = Struct({
+  inner: LDKnativeRouteHint,
+  is_owned: ref.types.byte,
+});
 var LDKRouteHintPtr = exports.LDKRouteHintPtr = ref.refType(LDKRouteHint);
+var LDKnativeRoutingFees = exports.LDKnativeRoutingFees = voidPtr;
+var LDKnativeRoutingFeesPtr = exports.LDKnativeRoutingFeesPtr = ref.refType(LDKnativeRoutingFees);
+var LDKRoutingFees = exports.LDKRoutingFees = Struct({
+  inner: LDKnativeRoutingFees,
+  is_owned: ref.types.byte,
+});
+var LDKRoutingFeesPtr = exports.LDKRoutingFeesPtr = ref.refType(LDKRoutingFees);
 var LDKCResultPtr_Route__LightningError = exports.LDKCResultPtr_Route__LightningError = Struct({
   result: LDKRoutePtr,
   err: LDKLightningErrorPtr,
@@ -720,7 +1105,12 @@ var LDKCResultTempl_Route__LightningError = exports.LDKCResultTempl_Route__Light
   result_ok: ref.types.byte,
 });
 var LDKCResultTempl_Route__LightningErrorPtr = exports.LDKCResultTempl_Route__LightningErrorPtr = ref.refType(LDKCResultTempl_Route__LightningError);
-var LDKNetworkGraph = exports.LDKNetworkGraph = voidPtr;
+var LDKnativeNetworkGraph = exports.LDKnativeNetworkGraph = voidPtr;
+var LDKnativeNetworkGraphPtr = exports.LDKnativeNetworkGraphPtr = ref.refType(LDKnativeNetworkGraph);
+var LDKNetworkGraph = exports.LDKNetworkGraph = Struct({
+  inner: LDKnativeNetworkGraph,
+  is_owned: ref.types.byte,
+});
 var LDKNetworkGraphPtr = exports.LDKNetworkGraphPtr = ref.refType(LDKNetworkGraph);
 var LDKCVec_ChannelDetailsZ = exports.LDKCVec_ChannelDetailsZ = Struct({
   LDKCVecTempl_ChannelDetails: LDKCVecTempl_ChannelDetails,
@@ -731,19 +1121,47 @@ var LDKCVecTempl_RouteHint = exports.LDKCVecTempl_RouteHint = Struct({
   datalen: ref.types.ulong,
 });
 var LDKCVecTempl_RouteHintPtr = exports.LDKCVecTempl_RouteHintPtr = ref.refType(LDKCVecTempl_RouteHint);
-var LDKLockedNetworkGraph = exports.LDKLockedNetworkGraph = voidPtr;
+var LDKnativeLockedNetworkGraph = exports.LDKnativeLockedNetworkGraph = voidPtr;
+var LDKnativeLockedNetworkGraphPtr = exports.LDKnativeLockedNetworkGraphPtr = ref.refType(LDKnativeLockedNetworkGraph);
+var LDKLockedNetworkGraph = exports.LDKLockedNetworkGraph = Struct({
+  inner: LDKnativeLockedNetworkGraph,
+  is_owned: ref.types.byte,
+});
 var LDKLockedNetworkGraphPtr = exports.LDKLockedNetworkGraphPtr = ref.refType(LDKLockedNetworkGraph);
-var LDKNetGraphMsgHandler = exports.LDKNetGraphMsgHandler = voidPtr;
+var LDKnativeNetGraphMsgHandler = exports.LDKnativeNetGraphMsgHandler = voidPtr;
+var LDKnativeNetGraphMsgHandlerPtr = exports.LDKnativeNetGraphMsgHandlerPtr = ref.refType(LDKnativeNetGraphMsgHandler);
+var LDKNetGraphMsgHandler = exports.LDKNetGraphMsgHandler = Struct({
+  inner: LDKnativeNetGraphMsgHandler,
+  is_owned: ref.types.byte,
+});
 var LDKNetGraphMsgHandlerPtr = exports.LDKNetGraphMsgHandlerPtr = ref.refType(LDKNetGraphMsgHandler);
-var LDKDirectionalChannelInfo = exports.LDKDirectionalChannelInfo = voidPtr;
+var LDKnativeDirectionalChannelInfo = exports.LDKnativeDirectionalChannelInfo = voidPtr;
+var LDKnativeDirectionalChannelInfoPtr = exports.LDKnativeDirectionalChannelInfoPtr = ref.refType(LDKnativeDirectionalChannelInfo);
+var LDKDirectionalChannelInfo = exports.LDKDirectionalChannelInfo = Struct({
+  inner: LDKnativeDirectionalChannelInfo,
+  is_owned: ref.types.byte,
+});
 var LDKDirectionalChannelInfoPtr = exports.LDKDirectionalChannelInfoPtr = ref.refType(LDKDirectionalChannelInfo);
-var LDKChannelInfo = exports.LDKChannelInfo = voidPtr;
+var LDKnativeChannelInfo = exports.LDKnativeChannelInfo = voidPtr;
+var LDKnativeChannelInfoPtr = exports.LDKnativeChannelInfoPtr = ref.refType(LDKnativeChannelInfo);
+var LDKChannelInfo = exports.LDKChannelInfo = Struct({
+  inner: LDKnativeChannelInfo,
+  is_owned: ref.types.byte,
+});
 var LDKChannelInfoPtr = exports.LDKChannelInfoPtr = ref.refType(LDKChannelInfo);
-var LDKRoutingFees = exports.LDKRoutingFees = voidPtr;
-var LDKRoutingFeesPtr = exports.LDKRoutingFeesPtr = ref.refType(LDKRoutingFees);
-var LDKNodeAnnouncementInfo = exports.LDKNodeAnnouncementInfo = voidPtr;
+var LDKnativeNodeAnnouncementInfo = exports.LDKnativeNodeAnnouncementInfo = voidPtr;
+var LDKnativeNodeAnnouncementInfoPtr = exports.LDKnativeNodeAnnouncementInfoPtr = ref.refType(LDKnativeNodeAnnouncementInfo);
+var LDKNodeAnnouncementInfo = exports.LDKNodeAnnouncementInfo = Struct({
+  inner: LDKnativeNodeAnnouncementInfo,
+  is_owned: ref.types.byte,
+});
 var LDKNodeAnnouncementInfoPtr = exports.LDKNodeAnnouncementInfoPtr = ref.refType(LDKNodeAnnouncementInfo);
-var LDKNodeInfo = exports.LDKNodeInfo = voidPtr;
+var LDKnativeNodeInfo = exports.LDKnativeNodeInfo = voidPtr;
+var LDKnativeNodeInfoPtr = exports.LDKnativeNodeInfoPtr = ref.refType(LDKnativeNodeInfo);
+var LDKNodeInfo = exports.LDKNodeInfo = Struct({
+  inner: LDKnativeNodeInfo,
+  is_owned: ref.types.byte,
+});
 var LDKNodeInfoPtr = exports.LDKNodeInfoPtr = ref.refType(LDKNodeInfo);
 
 exports.libldk = new FFI.Library(__dirname + '/../../lib/libldk', {
@@ -760,6 +1178,10 @@ exports.libldk = new FFI.Library(__dirname + '/../../lib/libldk', {
   CResult_NoneChannelMonitorUpdateErrZ_ok: [LDKCResultTempl_u8__ChannelMonitorUpdateErr, [
   ]],
   CResult_NoneMonitorUpdateErrorZ_ok: [LDKCResultTempl_u8__MonitorUpdateError, [
+  ]],
+  C2Tuple_OutPointScriptZ_new: [LDKC2TupleTempl_OutPoint__CVec_u8Z, [
+    LDKOutPoint,
+    LDKCVecTempl_u8,
   ]],
   C2Tuple_TxidCVec_TxOutZZ_new: [LDKC2TupleTempl_ThirtyTwoBytes__CVecTempl_TxOut, [
     LDKThirtyTwoBytes,
@@ -783,7 +1205,16 @@ exports.libldk = new FFI.Library(__dirname + '/../../lib/libldk', {
   ]],
   CResult_NonePaymentSendFailureZ_ok: [LDKCResultTempl_u8__PaymentSendFailure, [
   ]],
+  C3Tuple_ChannelAnnouncementChannelUpdateChannelUpdateZ_new: [LDKC3TupleTempl_ChannelAnnouncement__ChannelUpdate__ChannelUpdate, [
+    LDKChannelAnnouncement,
+    LDKChannelUpdate,
+    LDKChannelUpdate,
+  ]],
   CResult_NonePeerHandleErrorZ_ok: [LDKCResultTempl_u8__PeerHandleError, [
+  ]],
+  C2Tuple_HTLCOutputInCommitmentSignatureZ_new: [LDKC2TupleTempl_HTLCOutputInCommitment__Signature, [
+    LDKHTLCOutputInCommitment,
+    LDKSignature,
   ]],
   MessageSendEventsProvider_free: [ref.types.void, [
     LDKMessageSendEventsProvider,
@@ -799,8 +1230,11 @@ exports.libldk = new FFI.Library(__dirname + '/../../lib/libldk', {
   Logger_free: [ref.types.void, [
     LDKLogger,
   ]],
-  ChannelHandshakeConfig_get_minimum_depth: [ref.types.uint32, [
+  ChannelHandshakeConfig_free: [ref.types.void, [
     LDKChannelHandshakeConfig,
+  ]],
+  ChannelHandshakeConfig_get_minimum_depth: [ref.types.uint32, [
+    LDKChannelHandshakeConfigPtr,
   ]],
   ChannelHandshakeConfig_set_minimum_depth: [ref.types.void, [
     LDKChannelHandshakeConfigPtr,
@@ -827,8 +1261,11 @@ exports.libldk = new FFI.Library(__dirname + '/../../lib/libldk', {
   ]],
   ChannelHandshakeConfig_default: [LDKChannelHandshakeConfig, [
   ]],
-  ChannelHandshakeLimits_get_min_funding_satoshis: [ref.types.ulonglong, [
+  ChannelHandshakeLimits_free: [ref.types.void, [
     LDKChannelHandshakeLimits,
+  ]],
+  ChannelHandshakeLimits_get_min_funding_satoshis: [ref.types.ulonglong, [
+    LDKChannelHandshakeLimitsPtr,
   ]],
   ChannelHandshakeLimits_set_min_funding_satoshis: [ref.types.void, [
     LDKChannelHandshakeLimitsPtr,
@@ -911,8 +1348,11 @@ exports.libldk = new FFI.Library(__dirname + '/../../lib/libldk', {
   ]],
   ChannelHandshakeLimits_default: [LDKChannelHandshakeLimits, [
   ]],
-  ChannelConfig_get_fee_proportional_millionths: [ref.types.uint32, [
+  ChannelConfig_free: [ref.types.void, [
     LDKChannelConfig,
+  ]],
+  ChannelConfig_get_fee_proportional_millionths: [ref.types.uint32, [
+    LDKChannelConfigPtr,
   ]],
   ChannelConfig_set_fee_proportional_millionths: [ref.types.void, [
     LDKChannelConfigPtr,
@@ -945,8 +1385,11 @@ exports.libldk = new FFI.Library(__dirname + '/../../lib/libldk', {
   ChannelConfig_read: [LDKChannelConfig, [
     LDKu8slice,
   ]],
-  UserConfig_get_own_channel_config: [LDKChannelHandshakeConfig, [
+  UserConfig_free: [ref.types.void, [
     LDKUserConfig,
+  ]],
+  UserConfig_get_own_channel_config: [LDKChannelHandshakeConfig, [
+    LDKUserConfigPtr,
   ]],
   UserConfig_set_own_channel_config: [ref.types.void, [
     LDKUserConfigPtr,
@@ -988,8 +1431,11 @@ exports.libldk = new FFI.Library(__dirname + '/../../lib/libldk', {
   FeeEstimator_free: [ref.types.void, [
     LDKFeeEstimator,
   ]],
-  ChainMonitor_block_connected: [ref.types.void, [
+  ChainMonitor_free: [ref.types.void, [
     LDKChainMonitor,
+  ]],
+  ChainMonitor_block_connected: [ref.types.void, [
+    LDKChainMonitorPtr,
     voidPtr,
     LDKCVecTempl_C2TupleTempl_usize__Transaction,
     ref.types.uint32,
@@ -1011,8 +1457,11 @@ exports.libldk = new FFI.Library(__dirname + '/../../lib/libldk', {
   ChainMonitor_as_EventsProvider: [LDKEventsProvider, [
     LDKChainMonitorPtr,
   ]],
-  ChannelMonitorUpdate_get_update_id: [ref.types.ulonglong, [
+  ChannelMonitorUpdate_free: [ref.types.void, [
     LDKChannelMonitorUpdate,
+  ]],
+  ChannelMonitorUpdate_get_update_id: [ref.types.ulonglong, [
+    LDKChannelMonitorUpdatePtr,
   ]],
   ChannelMonitorUpdate_set_update_id: [ref.types.void, [
     LDKChannelMonitorUpdatePtr,
@@ -1027,19 +1476,31 @@ exports.libldk = new FFI.Library(__dirname + '/../../lib/libldk', {
   MonitorUpdateError_free: [ref.types.void, [
     LDKMonitorUpdateError,
   ]],
-  HTLCUpdate_write: [LDKCVecTempl_u8, [
+  MonitorEvent_free: [ref.types.void, [
+    LDKMonitorEvent,
+  ]],
+  HTLCUpdate_free: [ref.types.void, [
     LDKHTLCUpdate,
+  ]],
+  HTLCUpdate_write: [LDKCVecTempl_u8, [
+    LDKHTLCUpdatePtr,
   ]],
   HTLCUpdate_read: [LDKHTLCUpdate, [
     LDKu8slice,
   ]],
-  ChannelMonitor_update_monitor: [LDKCResultTempl_u8__MonitorUpdateError, [
+  ChannelMonitor_free: [ref.types.void, [
     LDKChannelMonitor,
+  ]],
+  ChannelMonitor_update_monitor: [LDKCResultTempl_u8__MonitorUpdateError, [
+    LDKChannelMonitorPtr,
     LDKChannelMonitorUpdate,
     LDKBroadcasterInterfacePtr,
     LDKLoggerPtr,
   ]],
   ChannelMonitor_get_latest_update_id: [ref.types.ulonglong, [
+    LDKChannelMonitorPtr,
+  ]],
+  ChannelMonitor_get_funding_txo: [LDKC2TupleTempl_OutPoint__CVec_u8Z, [
     LDKChannelMonitorPtr,
   ]],
   ChannelMonitor_get_and_clear_pending_monitor_events: [LDKCVecTempl_MonitorEvent, [
@@ -1069,8 +1530,11 @@ exports.libldk = new FFI.Library(__dirname + '/../../lib/libldk', {
     LDKFeeEstimator,
     LDKLogger,
   ]],
-  OutPoint_get_txid: [voidPtr, [
+  OutPoint_free: [ref.types.void, [
     LDKOutPoint,
+  ]],
+  OutPoint_get_txid: [voidPtr, [
+    LDKOutPointPtr,
   ]],
   OutPoint_set_txid: [ref.types.void, [
     LDKOutPointPtr,
@@ -1096,11 +1560,17 @@ exports.libldk = new FFI.Library(__dirname + '/../../lib/libldk', {
   OutPoint_read: [LDKOutPoint, [
     LDKu8slice,
   ]],
+  ChannelKeys_free: [ref.types.void, [
+    LDKChannelKeys,
+  ]],
   KeysInterface_free: [ref.types.void, [
     LDKKeysInterface,
   ]],
-  InMemoryChannelKeys_get_funding_key: [voidPtr, [
+  InMemoryChannelKeys_free: [ref.types.void, [
     LDKInMemoryChannelKeys,
+  ]],
+  InMemoryChannelKeys_get_funding_key: [voidPtr, [
+    LDKInMemoryChannelKeysPtr,
   ]],
   InMemoryChannelKeys_set_funding_key: [ref.types.void, [
     LDKInMemoryChannelKeysPtr,
@@ -1151,10 +1621,16 @@ exports.libldk = new FFI.Library(__dirname + '/../../lib/libldk', {
     ref.types.ulonglong,
     LDKC2TupleTempl_u64__u64,
   ]],
+  InMemoryChannelKeys_counterparty_pubkeys: [LDKChannelPublicKeys, [
+    LDKInMemoryChannelKeysPtr,
+  ]],
   InMemoryChannelKeys_counterparty_selected_contest_delay: [ref.types.ushort, [
     LDKInMemoryChannelKeysPtr,
   ]],
   InMemoryChannelKeys_holder_selected_contest_delay: [ref.types.ushort, [
+    LDKInMemoryChannelKeysPtr,
+  ]],
+  InMemoryChannelKeys_as_ChannelKeys: [LDKChannelKeys, [
     LDKInMemoryChannelKeysPtr,
   ]],
   InMemoryChannelKeys_write: [LDKCVecTempl_u8, [
@@ -1163,8 +1639,17 @@ exports.libldk = new FFI.Library(__dirname + '/../../lib/libldk', {
   InMemoryChannelKeys_read: [LDKInMemoryChannelKeys, [
     LDKu8slice,
   ]],
-  KeysManager_derive_channel_keys: [LDKInMemoryChannelKeys, [
+  KeysManager_free: [ref.types.void, [
     LDKKeysManager,
+  ]],
+  KeysManager_new: [LDKKeysManager, [
+    voidPtr,
+    ref.types.uint32,
+    ref.types.ulonglong,
+    ref.types.uint32,
+  ]],
+  KeysManager_derive_channel_keys: [LDKInMemoryChannelKeys, [
+    LDKKeysManagerPtr,
     ref.types.ulonglong,
     ref.types.ulonglong,
     ref.types.ulonglong,
@@ -1172,8 +1657,14 @@ exports.libldk = new FFI.Library(__dirname + '/../../lib/libldk', {
   KeysManager_as_KeysInterface: [LDKKeysInterface, [
     LDKKeysManagerPtr,
   ]],
-  ChannelDetails_get_channel_id: [voidPtr, [
+  ChannelManager_free: [ref.types.void, [
+    LDKChannelManager,
+  ]],
+  ChannelDetails_free: [ref.types.void, [
     LDKChannelDetails,
+  ]],
+  ChannelDetails_get_channel_id: [voidPtr, [
+    LDKChannelDetailsPtr,
   ]],
   ChannelDetails_set_channel_id: [ref.types.void, [
     LDKChannelDetailsPtr,
@@ -1185,6 +1676,13 @@ exports.libldk = new FFI.Library(__dirname + '/../../lib/libldk', {
   ChannelDetails_set_remote_network_id: [ref.types.void, [
     LDKChannelDetailsPtr,
     LDKPublicKey,
+  ]],
+  ChannelDetails_get_counterparty_features: [LDKInitFeatures, [
+    LDKChannelDetailsPtr,
+  ]],
+  ChannelDetails_set_counterparty_features: [ref.types.void, [
+    LDKChannelDetailsPtr,
+    LDKInitFeatures,
   ]],
   ChannelDetails_get_channel_value_satoshis: [ref.types.ulonglong, [
     LDKChannelDetailsPtr,
@@ -1224,8 +1722,18 @@ exports.libldk = new FFI.Library(__dirname + '/../../lib/libldk', {
   PaymentSendFailure_free: [ref.types.void, [
     LDKPaymentSendFailure,
   ]],
+  ChannelManager_new: [LDKChannelManager, [
+    ref.types.uint32,
+    LDKFeeEstimator,
+    LDKWatch,
+    LDKBroadcasterInterface,
+    LDKLogger,
+    LDKKeysInterface,
+    LDKUserConfig,
+    ref.types.ulong,
+  ]],
   ChannelManager_create_channel: [LDKCResultTempl_u8__APIError, [
-    LDKChannelManager,
+    LDKChannelManagerPtr,
     LDKPublicKey,
     ref.types.ulonglong,
     ref.types.ulonglong,
@@ -1251,7 +1759,7 @@ exports.libldk = new FFI.Library(__dirname + '/../../lib/libldk', {
   ]],
   ChannelManager_send_payment: [LDKCResultTempl_u8__PaymentSendFailure, [
     LDKChannelManagerPtr,
-    LDKRoute,
+    LDKRoutePtr,
     LDKThirtyTwoBytes,
     LDKThirtyTwoBytes,
   ]],
@@ -1310,8 +1818,11 @@ exports.libldk = new FFI.Library(__dirname + '/../../lib/libldk', {
   ChannelManager_as_ChannelMessageHandler: [LDKChannelMessageHandler, [
     LDKChannelManagerPtr,
   ]],
-  ChannelManagerReadArgs_get_keys_manager: [LDKKeysInterfacePtr, [
+  ChannelManagerReadArgs_free: [ref.types.void, [
     LDKChannelManagerReadArgs,
+  ]],
+  ChannelManagerReadArgs_get_keys_manager: [LDKKeysInterfacePtr, [
+    LDKChannelManagerReadArgsPtr,
   ]],
   ChannelManagerReadArgs_set_keys_manager: [ref.types.void, [
     LDKChannelManagerReadArgsPtr,
@@ -1361,8 +1872,17 @@ exports.libldk = new FFI.Library(__dirname + '/../../lib/libldk', {
     LDKUserConfig,
     LDKCVecTempl_ChannelMonitor,
   ]],
-  ErrorMessage_get_channel_id: [voidPtr, [
+  DecodeError_free: [ref.types.void, [
+    LDKDecodeError,
+  ]],
+  Init_free: [ref.types.void, [
+    LDKInit,
+  ]],
+  ErrorMessage_free: [ref.types.void, [
     LDKErrorMessage,
+  ]],
+  ErrorMessage_get_channel_id: [voidPtr, [
+    LDKErrorMessagePtr,
   ]],
   ErrorMessage_set_channel_id: [ref.types.void, [
     LDKErrorMessagePtr,
@@ -1379,8 +1899,11 @@ exports.libldk = new FFI.Library(__dirname + '/../../lib/libldk', {
     LDKThirtyTwoBytes,
     LDKCVecTempl_u8,
   ]],
-  Ping_get_ponglen: [ref.types.ushort, [
+  Ping_free: [ref.types.void, [
     LDKPing,
+  ]],
+  Ping_get_ponglen: [ref.types.ushort, [
+    LDKPingPtr,
   ]],
   Ping_set_ponglen: [ref.types.void, [
     LDKPingPtr,
@@ -1397,8 +1920,11 @@ exports.libldk = new FFI.Library(__dirname + '/../../lib/libldk', {
     ref.types.ushort,
     ref.types.ushort,
   ]],
-  Pong_get_byteslen: [ref.types.ushort, [
+  Pong_free: [ref.types.void, [
     LDKPong,
+  ]],
+  Pong_get_byteslen: [ref.types.ushort, [
+    LDKPongPtr,
   ]],
   Pong_set_byteslen: [ref.types.void, [
     LDKPongPtr,
@@ -1407,8 +1933,11 @@ exports.libldk = new FFI.Library(__dirname + '/../../lib/libldk', {
   Pong_new: [LDKPong, [
     ref.types.ushort,
   ]],
-  OpenChannel_get_chain_hash: [voidPtr, [
+  OpenChannel_free: [ref.types.void, [
     LDKOpenChannel,
+  ]],
+  OpenChannel_get_chain_hash: [voidPtr, [
+    LDKOpenChannelPtr,
   ]],
   OpenChannel_set_chain_hash: [ref.types.void, [
     LDKOpenChannelPtr,
@@ -1533,8 +2062,11 @@ exports.libldk = new FFI.Library(__dirname + '/../../lib/libldk', {
     LDKOpenChannelPtr,
     ref.types.uchar,
   ]],
-  AcceptChannel_get_temporary_channel_id: [voidPtr, [
+  AcceptChannel_free: [ref.types.void, [
     LDKAcceptChannel,
+  ]],
+  AcceptChannel_get_temporary_channel_id: [voidPtr, [
+    LDKAcceptChannelPtr,
   ]],
   AcceptChannel_set_temporary_channel_id: [ref.types.void, [
     LDKAcceptChannelPtr,
@@ -1631,8 +2163,11 @@ exports.libldk = new FFI.Library(__dirname + '/../../lib/libldk', {
     LDKAcceptChannelPtr,
     LDKPublicKey,
   ]],
-  FundingCreated_get_temporary_channel_id: [voidPtr, [
+  FundingCreated_free: [ref.types.void, [
     LDKFundingCreated,
+  ]],
+  FundingCreated_get_temporary_channel_id: [voidPtr, [
+    LDKFundingCreatedPtr,
   ]],
   FundingCreated_set_temporary_channel_id: [ref.types.void, [
     LDKFundingCreatedPtr,
@@ -1665,8 +2200,11 @@ exports.libldk = new FFI.Library(__dirname + '/../../lib/libldk', {
     ref.types.ushort,
     LDKSignature,
   ]],
-  FundingSigned_get_channel_id: [voidPtr, [
+  FundingSigned_free: [ref.types.void, [
     LDKFundingSigned,
+  ]],
+  FundingSigned_get_channel_id: [voidPtr, [
+    LDKFundingSignedPtr,
   ]],
   FundingSigned_set_channel_id: [ref.types.void, [
     LDKFundingSignedPtr,
@@ -1683,8 +2221,11 @@ exports.libldk = new FFI.Library(__dirname + '/../../lib/libldk', {
     LDKThirtyTwoBytes,
     LDKSignature,
   ]],
-  FundingLocked_get_channel_id: [voidPtr, [
+  FundingLocked_free: [ref.types.void, [
     LDKFundingLocked,
+  ]],
+  FundingLocked_get_channel_id: [voidPtr, [
+    LDKFundingLockedPtr,
   ]],
   FundingLocked_set_channel_id: [ref.types.void, [
     LDKFundingLockedPtr,
@@ -1701,8 +2242,11 @@ exports.libldk = new FFI.Library(__dirname + '/../../lib/libldk', {
     LDKThirtyTwoBytes,
     LDKPublicKey,
   ]],
-  Shutdown_get_channel_id: [voidPtr, [
+  Shutdown_free: [ref.types.void, [
     LDKShutdown,
+  ]],
+  Shutdown_get_channel_id: [voidPtr, [
+    LDKShutdownPtr,
   ]],
   Shutdown_set_channel_id: [ref.types.void, [
     LDKShutdownPtr,
@@ -1719,8 +2263,11 @@ exports.libldk = new FFI.Library(__dirname + '/../../lib/libldk', {
     LDKThirtyTwoBytes,
     LDKCVecTempl_u8,
   ]],
-  ClosingSigned_get_channel_id: [voidPtr, [
+  ClosingSigned_free: [ref.types.void, [
     LDKClosingSigned,
+  ]],
+  ClosingSigned_get_channel_id: [voidPtr, [
+    LDKClosingSignedPtr,
   ]],
   ClosingSigned_set_channel_id: [ref.types.void, [
     LDKClosingSignedPtr,
@@ -1745,8 +2292,11 @@ exports.libldk = new FFI.Library(__dirname + '/../../lib/libldk', {
     ref.types.ulonglong,
     LDKSignature,
   ]],
-  UpdateAddHTLC_get_channel_id: [voidPtr, [
+  UpdateAddHTLC_free: [ref.types.void, [
     LDKUpdateAddHTLC,
+  ]],
+  UpdateAddHTLC_get_channel_id: [voidPtr, [
+    LDKUpdateAddHTLCPtr,
   ]],
   UpdateAddHTLC_set_channel_id: [ref.types.void, [
     LDKUpdateAddHTLCPtr,
@@ -1780,8 +2330,11 @@ exports.libldk = new FFI.Library(__dirname + '/../../lib/libldk', {
     LDKUpdateAddHTLCPtr,
     ref.types.uint32,
   ]],
-  UpdateFulfillHTLC_get_channel_id: [voidPtr, [
+  UpdateFulfillHTLC_free: [ref.types.void, [
     LDKUpdateFulfillHTLC,
+  ]],
+  UpdateFulfillHTLC_get_channel_id: [voidPtr, [
+    LDKUpdateFulfillHTLCPtr,
   ]],
   UpdateFulfillHTLC_set_channel_id: [ref.types.void, [
     LDKUpdateFulfillHTLCPtr,
@@ -1806,8 +2359,11 @@ exports.libldk = new FFI.Library(__dirname + '/../../lib/libldk', {
     ref.types.ulonglong,
     LDKThirtyTwoBytes,
   ]],
-  UpdateFailHTLC_get_channel_id: [voidPtr, [
+  UpdateFailHTLC_free: [ref.types.void, [
     LDKUpdateFailHTLC,
+  ]],
+  UpdateFailHTLC_get_channel_id: [voidPtr, [
+    LDKUpdateFailHTLCPtr,
   ]],
   UpdateFailHTLC_set_channel_id: [ref.types.void, [
     LDKUpdateFailHTLCPtr,
@@ -1820,8 +2376,11 @@ exports.libldk = new FFI.Library(__dirname + '/../../lib/libldk', {
     LDKUpdateFailHTLCPtr,
     ref.types.ulonglong,
   ]],
-  UpdateFailMalformedHTLC_get_channel_id: [voidPtr, [
+  UpdateFailMalformedHTLC_free: [ref.types.void, [
     LDKUpdateFailMalformedHTLC,
+  ]],
+  UpdateFailMalformedHTLC_get_channel_id: [voidPtr, [
+    LDKUpdateFailMalformedHTLCPtr,
   ]],
   UpdateFailMalformedHTLC_set_channel_id: [ref.types.void, [
     LDKUpdateFailMalformedHTLCPtr,
@@ -1841,8 +2400,11 @@ exports.libldk = new FFI.Library(__dirname + '/../../lib/libldk', {
     LDKUpdateFailMalformedHTLCPtr,
     ref.types.ushort,
   ]],
-  CommitmentSigned_get_channel_id: [voidPtr, [
+  CommitmentSigned_free: [ref.types.void, [
     LDKCommitmentSigned,
+  ]],
+  CommitmentSigned_get_channel_id: [voidPtr, [
+    LDKCommitmentSignedPtr,
   ]],
   CommitmentSigned_set_channel_id: [ref.types.void, [
     LDKCommitmentSignedPtr,
@@ -1864,8 +2426,11 @@ exports.libldk = new FFI.Library(__dirname + '/../../lib/libldk', {
     LDKSignature,
     LDKCVecTempl_Signature,
   ]],
-  RevokeAndACK_get_channel_id: [voidPtr, [
+  RevokeAndACK_free: [ref.types.void, [
     LDKRevokeAndACK,
+  ]],
+  RevokeAndACK_get_channel_id: [voidPtr, [
+    LDKRevokeAndACKPtr,
   ]],
   RevokeAndACK_set_channel_id: [ref.types.void, [
     LDKRevokeAndACKPtr,
@@ -1890,8 +2455,11 @@ exports.libldk = new FFI.Library(__dirname + '/../../lib/libldk', {
     LDKThirtyTwoBytes,
     LDKPublicKey,
   ]],
-  UpdateFee_get_channel_id: [voidPtr, [
+  UpdateFee_free: [ref.types.void, [
     LDKUpdateFee,
+  ]],
+  UpdateFee_get_channel_id: [voidPtr, [
+    LDKUpdateFeePtr,
   ]],
   UpdateFee_set_channel_id: [ref.types.void, [
     LDKUpdateFeePtr,
@@ -1908,8 +2476,11 @@ exports.libldk = new FFI.Library(__dirname + '/../../lib/libldk', {
     LDKThirtyTwoBytes,
     ref.types.uint32,
   ]],
-  DataLossProtect_get_your_last_per_commitment_secret: [voidPtr, [
+  DataLossProtect_free: [ref.types.void, [
     LDKDataLossProtect,
+  ]],
+  DataLossProtect_get_your_last_per_commitment_secret: [voidPtr, [
+    LDKDataLossProtectPtr,
   ]],
   DataLossProtect_set_your_last_per_commitment_secret: [ref.types.void, [
     LDKDataLossProtectPtr,
@@ -1926,8 +2497,11 @@ exports.libldk = new FFI.Library(__dirname + '/../../lib/libldk', {
     LDKThirtyTwoBytes,
     LDKPublicKey,
   ]],
-  ChannelReestablish_get_channel_id: [voidPtr, [
+  ChannelReestablish_free: [ref.types.void, [
     LDKChannelReestablish,
+  ]],
+  ChannelReestablish_get_channel_id: [voidPtr, [
+    LDKChannelReestablishPtr,
   ]],
   ChannelReestablish_set_channel_id: [ref.types.void, [
     LDKChannelReestablishPtr,
@@ -1947,8 +2521,11 @@ exports.libldk = new FFI.Library(__dirname + '/../../lib/libldk', {
     LDKChannelReestablishPtr,
     ref.types.ulonglong,
   ]],
-  AnnouncementSignatures_get_channel_id: [voidPtr, [
+  AnnouncementSignatures_free: [ref.types.void, [
     LDKAnnouncementSignatures,
+  ]],
+  AnnouncementSignatures_get_channel_id: [voidPtr, [
+    LDKAnnouncementSignaturesPtr,
   ]],
   AnnouncementSignatures_set_channel_id: [ref.types.void, [
     LDKAnnouncementSignaturesPtr,
@@ -1984,6 +2561,16 @@ exports.libldk = new FFI.Library(__dirname + '/../../lib/libldk', {
   NetAddress_free: [ref.types.void, [
     LDKNetAddress,
   ]],
+  UnsignedNodeAnnouncement_free: [ref.types.void, [
+    LDKUnsignedNodeAnnouncement,
+  ]],
+  UnsignedNodeAnnouncement_get_features: [LDKNodeFeatures, [
+    LDKUnsignedNodeAnnouncementPtr,
+  ]],
+  UnsignedNodeAnnouncement_set_features: [ref.types.void, [
+    LDKUnsignedNodeAnnouncementPtr,
+    LDKNodeFeatures,
+  ]],
   UnsignedNodeAnnouncement_get_timestamp: [ref.types.uint32, [
     LDKUnsignedNodeAnnouncementPtr,
   ]],
@@ -2016,8 +2603,11 @@ exports.libldk = new FFI.Library(__dirname + '/../../lib/libldk', {
     LDKUnsignedNodeAnnouncementPtr,
     LDKCVecTempl_NetAddress,
   ]],
-  NodeAnnouncement_get_signature: [LDKSignature, [
+  NodeAnnouncement_free: [ref.types.void, [
     LDKNodeAnnouncement,
+  ]],
+  NodeAnnouncement_get_signature: [LDKSignature, [
+    LDKNodeAnnouncementPtr,
   ]],
   NodeAnnouncement_set_signature: [ref.types.void, [
     LDKNodeAnnouncementPtr,
@@ -2033,6 +2623,16 @@ exports.libldk = new FFI.Library(__dirname + '/../../lib/libldk', {
   NodeAnnouncement_new: [LDKNodeAnnouncement, [
     LDKSignature,
     LDKUnsignedNodeAnnouncement,
+  ]],
+  UnsignedChannelAnnouncement_free: [ref.types.void, [
+    LDKUnsignedChannelAnnouncement,
+  ]],
+  UnsignedChannelAnnouncement_get_features: [LDKChannelFeatures, [
+    LDKUnsignedChannelAnnouncementPtr,
+  ]],
+  UnsignedChannelAnnouncement_set_features: [ref.types.void, [
+    LDKUnsignedChannelAnnouncementPtr,
+    LDKChannelFeatures,
   ]],
   UnsignedChannelAnnouncement_get_chain_hash: [voidPtr, [
     LDKUnsignedChannelAnnouncementPtr,
@@ -2076,8 +2676,11 @@ exports.libldk = new FFI.Library(__dirname + '/../../lib/libldk', {
     LDKUnsignedChannelAnnouncementPtr,
     LDKPublicKey,
   ]],
-  ChannelAnnouncement_get_node_signature_1: [LDKSignature, [
+  ChannelAnnouncement_free: [ref.types.void, [
     LDKChannelAnnouncement,
+  ]],
+  ChannelAnnouncement_get_node_signature_1: [LDKSignature, [
+    LDKChannelAnnouncementPtr,
   ]],
   ChannelAnnouncement_set_node_signature_1: [ref.types.void, [
     LDKChannelAnnouncementPtr,
@@ -2118,8 +2721,11 @@ exports.libldk = new FFI.Library(__dirname + '/../../lib/libldk', {
     LDKSignature,
     LDKUnsignedChannelAnnouncement,
   ]],
-  UnsignedChannelUpdate_get_chain_hash: [voidPtr, [
+  UnsignedChannelUpdate_free: [ref.types.void, [
     LDKUnsignedChannelUpdate,
+  ]],
+  UnsignedChannelUpdate_get_chain_hash: [voidPtr, [
+    LDKUnsignedChannelUpdatePtr,
   ]],
   UnsignedChannelUpdate_set_chain_hash: [ref.types.void, [
     LDKUnsignedChannelUpdatePtr,
@@ -2174,8 +2780,11 @@ exports.libldk = new FFI.Library(__dirname + '/../../lib/libldk', {
     LDKUnsignedChannelUpdatePtr,
     ref.types.uint32,
   ]],
-  ChannelUpdate_get_signature: [LDKSignature, [
+  ChannelUpdate_free: [ref.types.void, [
     LDKChannelUpdate,
+  ]],
+  ChannelUpdate_get_signature: [LDKSignature, [
+    LDKChannelUpdatePtr,
   ]],
   ChannelUpdate_set_signature: [ref.types.void, [
     LDKChannelUpdatePtr,
@@ -2192,8 +2801,11 @@ exports.libldk = new FFI.Library(__dirname + '/../../lib/libldk', {
     LDKSignature,
     LDKUnsignedChannelUpdate,
   ]],
-  QueryChannelRange_get_chain_hash: [voidPtr, [
+  QueryChannelRange_free: [ref.types.void, [
     LDKQueryChannelRange,
+  ]],
+  QueryChannelRange_get_chain_hash: [voidPtr, [
+    LDKQueryChannelRangePtr,
   ]],
   QueryChannelRange_set_chain_hash: [ref.types.void, [
     LDKQueryChannelRangePtr,
@@ -2218,8 +2830,11 @@ exports.libldk = new FFI.Library(__dirname + '/../../lib/libldk', {
     ref.types.uint32,
     ref.types.uint32,
   ]],
-  ReplyChannelRange_get_chain_hash: [voidPtr, [
+  ReplyChannelRange_free: [ref.types.void, [
     LDKReplyChannelRange,
+  ]],
+  ReplyChannelRange_get_chain_hash: [voidPtr, [
+    LDKReplyChannelRangePtr,
   ]],
   ReplyChannelRange_set_chain_hash: [ref.types.void, [
     LDKReplyChannelRangePtr,
@@ -2257,8 +2872,11 @@ exports.libldk = new FFI.Library(__dirname + '/../../lib/libldk', {
     ref.types.byte,
     LDKCVecTempl_u64,
   ]],
-  QueryShortChannelIds_get_chain_hash: [voidPtr, [
+  QueryShortChannelIds_free: [ref.types.void, [
     LDKQueryShortChannelIds,
+  ]],
+  QueryShortChannelIds_get_chain_hash: [voidPtr, [
+    LDKQueryShortChannelIdsPtr,
   ]],
   QueryShortChannelIds_set_chain_hash: [ref.types.void, [
     LDKQueryShortChannelIdsPtr,
@@ -2272,8 +2890,11 @@ exports.libldk = new FFI.Library(__dirname + '/../../lib/libldk', {
     LDKThirtyTwoBytes,
     LDKCVecTempl_u64,
   ]],
-  ReplyShortChannelIdsEnd_get_chain_hash: [voidPtr, [
+  ReplyShortChannelIdsEnd_free: [ref.types.void, [
     LDKReplyShortChannelIdsEnd,
+  ]],
+  ReplyShortChannelIdsEnd_get_chain_hash: [voidPtr, [
+    LDKReplyShortChannelIdsEndPtr,
   ]],
   ReplyShortChannelIdsEnd_set_chain_hash: [ref.types.void, [
     LDKReplyShortChannelIdsEndPtr,
@@ -2290,8 +2911,11 @@ exports.libldk = new FFI.Library(__dirname + '/../../lib/libldk', {
     LDKThirtyTwoBytes,
     ref.types.byte,
   ]],
-  GossipTimestampFilter_get_chain_hash: [voidPtr, [
+  GossipTimestampFilter_free: [ref.types.void, [
     LDKGossipTimestampFilter,
+  ]],
+  GossipTimestampFilter_get_chain_hash: [voidPtr, [
+    LDKGossipTimestampFilterPtr,
   ]],
   GossipTimestampFilter_set_chain_hash: [ref.types.void, [
     LDKGossipTimestampFilterPtr,
@@ -2316,15 +2940,21 @@ exports.libldk = new FFI.Library(__dirname + '/../../lib/libldk', {
     ref.types.uint32,
     ref.types.uint32,
   ]],
-  LightningError_get_err: [LDKStr, [
+  LightningError_free: [ref.types.void, [
     LDKLightningError,
+  ]],
+  LightningError_get_err: [LDKStr, [
+    LDKLightningErrorPtr,
   ]],
   LightningError_set_err: [ref.types.void, [
     LDKLightningErrorPtr,
     LDKCVecTempl_u8,
   ]],
-  CommitmentUpdate_set_update_add_htlcs: [ref.types.void, [
+  CommitmentUpdate_free: [ref.types.void, [
     LDKCommitmentUpdate,
+  ]],
+  CommitmentUpdate_set_update_add_htlcs: [ref.types.void, [
+    LDKCommitmentUpdatePtr,
     LDKCVecTempl_UpdateAddHTLC,
   ]],
   CommitmentUpdate_set_update_fulfill_htlcs: [ref.types.void, [
@@ -2416,7 +3046,7 @@ exports.libldk = new FFI.Library(__dirname + '/../../lib/libldk', {
     LDKu8slice,
   ]],
   Init_write: [LDKCVecTempl_u8, [
-    LDKInit,
+    LDKInitPtr,
   ]],
   Init_read: [LDKInit, [
     LDKu8slice,
@@ -2553,8 +3183,11 @@ exports.libldk = new FFI.Library(__dirname + '/../../lib/libldk', {
   GossipTimestampFilter_write: [LDKCVecTempl_u8, [
     LDKGossipTimestampFilterPtr,
   ]],
-  MessageHandler_get_chan_handler: [LDKChannelMessageHandlerPtr, [
+  MessageHandler_free: [ref.types.void, [
     LDKMessageHandler,
+  ]],
+  MessageHandler_get_chan_handler: [LDKChannelMessageHandlerPtr, [
+    LDKMessageHandlerPtr,
   ]],
   MessageHandler_set_chan_handler: [ref.types.void, [
     LDKMessageHandlerPtr,
@@ -2587,8 +3220,17 @@ exports.libldk = new FFI.Library(__dirname + '/../../lib/libldk', {
   PeerHandleError_new: [LDKPeerHandleError, [
     ref.types.byte,
   ]],
-  PeerManager_get_peer_node_ids: [LDKCVecTempl_PublicKey, [
+  PeerManager_free: [ref.types.void, [
     LDKPeerManager,
+  ]],
+  PeerManager_new: [LDKPeerManager, [
+    LDKMessageHandler,
+    LDKSecretKey,
+    voidPtr,
+    LDKLogger,
+  ]],
+  PeerManager_get_peer_node_ids: [LDKCVecTempl_PublicKey, [
+    LDKPeerManagerPtr,
   ]],
   PeerManager_new_outbound_connection: [LDKCResultTempl_CVecTempl_u8_____PeerHandleError, [
     LDKPeerManagerPtr,
@@ -2638,8 +3280,11 @@ exports.libldk = new FFI.Library(__dirname + '/../../lib/libldk', {
     LDKPublicKey,
     LDKPublicKey,
   ]],
-  TxCreationKeys_get_per_commitment_point: [LDKPublicKey, [
+  TxCreationKeys_free: [ref.types.void, [
     LDKTxCreationKeys,
+  ]],
+  TxCreationKeys_get_per_commitment_point: [LDKPublicKey, [
+    LDKTxCreationKeysPtr,
   ]],
   TxCreationKeys_set_per_commitment_point: [ref.types.void, [
     LDKTxCreationKeysPtr,
@@ -2686,14 +3331,23 @@ exports.libldk = new FFI.Library(__dirname + '/../../lib/libldk', {
   TxCreationKeys_read: [LDKTxCreationKeys, [
     LDKu8slice,
   ]],
-  PreCalculatedTxCreationKeys_trust_key_derivation: [LDKTxCreationKeys, [
+  PreCalculatedTxCreationKeys_free: [ref.types.void, [
     LDKPreCalculatedTxCreationKeys,
+  ]],
+  PreCalculatedTxCreationKeys_new: [LDKPreCalculatedTxCreationKeys, [
+    LDKTxCreationKeys,
+  ]],
+  PreCalculatedTxCreationKeys_trust_key_derivation: [LDKTxCreationKeys, [
+    LDKPreCalculatedTxCreationKeysPtr,
   ]],
   PreCalculatedTxCreationKeys_per_commitment_point: [LDKPublicKey, [
     LDKPreCalculatedTxCreationKeysPtr,
   ]],
-  ChannelPublicKeys_get_funding_pubkey: [LDKPublicKey, [
+  ChannelPublicKeys_free: [ref.types.void, [
     LDKChannelPublicKeys,
+  ]],
+  ChannelPublicKeys_get_funding_pubkey: [LDKPublicKey, [
+    LDKChannelPublicKeysPtr,
   ]],
   ChannelPublicKeys_set_funding_pubkey: [ref.types.void, [
     LDKChannelPublicKeysPtr,
@@ -2752,8 +3406,11 @@ exports.libldk = new FFI.Library(__dirname + '/../../lib/libldk', {
     ref.types.ushort,
     LDKPublicKey,
   ]],
-  HTLCOutputInCommitment_get_offered: [ref.types.byte, [
+  HTLCOutputInCommitment_free: [ref.types.void, [
     LDKHTLCOutputInCommitment,
+  ]],
+  HTLCOutputInCommitment_get_offered: [ref.types.byte, [
+    LDKHTLCOutputInCommitmentPtr,
   ]],
   HTLCOutputInCommitment_set_offered: [ref.types.void, [
     LDKHTLCOutputInCommitmentPtr,
@@ -2802,8 +3459,11 @@ exports.libldk = new FFI.Library(__dirname + '/../../lib/libldk', {
     LDKPublicKey,
     LDKPublicKey,
   ]],
-  HolderCommitmentTransaction_get_unsigned_tx: [LDKTransaction, [
+  HolderCommitmentTransaction_free: [ref.types.void, [
     LDKHolderCommitmentTransaction,
+  ]],
+  HolderCommitmentTransaction_get_unsigned_tx: [LDKTransaction, [
+    LDKHolderCommitmentTransactionPtr,
   ]],
   HolderCommitmentTransaction_set_unsigned_tx: [ref.types.void, [
     LDKHolderCommitmentTransactionPtr,
@@ -2859,12 +3519,31 @@ exports.libldk = new FFI.Library(__dirname + '/../../lib/libldk', {
   HolderCommitmentTransaction_read: [LDKHolderCommitmentTransaction, [
     LDKu8slice,
   ]],
-  RouteHop_get_pubkey: [LDKPublicKey, [
+  InitFeatures_free: [ref.types.void, [
+    LDKInitFeatures,
+  ]],
+  NodeFeatures_free: [ref.types.void, [
+    LDKNodeFeatures,
+  ]],
+  ChannelFeatures_free: [ref.types.void, [
+    LDKChannelFeatures,
+  ]],
+  RouteHop_free: [ref.types.void, [
     LDKRouteHop,
+  ]],
+  RouteHop_get_pubkey: [LDKPublicKey, [
+    LDKRouteHopPtr,
   ]],
   RouteHop_set_pubkey: [ref.types.void, [
     LDKRouteHopPtr,
     LDKPublicKey,
+  ]],
+  RouteHop_get_node_features: [LDKNodeFeatures, [
+    LDKRouteHopPtr,
+  ]],
+  RouteHop_set_node_features: [ref.types.void, [
+    LDKRouteHopPtr,
+    LDKNodeFeatures,
   ]],
   RouteHop_get_short_channel_id: [ref.types.ulonglong, [
     LDKRouteHopPtr,
@@ -2872,6 +3551,13 @@ exports.libldk = new FFI.Library(__dirname + '/../../lib/libldk', {
   RouteHop_set_short_channel_id: [ref.types.void, [
     LDKRouteHopPtr,
     ref.types.ulonglong,
+  ]],
+  RouteHop_get_channel_features: [LDKChannelFeatures, [
+    LDKRouteHopPtr,
+  ]],
+  RouteHop_set_channel_features: [ref.types.void, [
+    LDKRouteHopPtr,
+    LDKChannelFeatures,
   ]],
   RouteHop_get_fee_msat: [ref.types.ulonglong, [
     LDKRouteHopPtr,
@@ -2885,6 +3571,14 @@ exports.libldk = new FFI.Library(__dirname + '/../../lib/libldk', {
   ]],
   RouteHop_set_cltv_expiry_delta: [ref.types.void, [
     LDKRouteHopPtr,
+    ref.types.uint32,
+  ]],
+  RouteHop_new: [LDKRouteHop, [
+    LDKPublicKey,
+    LDKNodeFeatures,
+    ref.types.ulonglong,
+    LDKChannelFeatures,
+    ref.types.ulonglong,
     ref.types.uint32,
   ]],
   Route_free: [ref.types.void, [
@@ -2903,8 +3597,11 @@ exports.libldk = new FFI.Library(__dirname + '/../../lib/libldk', {
   Route_read: [LDKRoute, [
     LDKu8slice,
   ]],
-  RouteHint_get_src_node_id: [LDKPublicKey, [
+  RouteHint_free: [ref.types.void, [
     LDKRouteHint,
+  ]],
+  RouteHint_get_src_node_id: [LDKPublicKey, [
+    LDKRouteHintPtr,
   ]],
   RouteHint_set_src_node_id: [ref.types.void, [
     LDKRouteHintPtr,
@@ -2916,6 +3613,13 @@ exports.libldk = new FFI.Library(__dirname + '/../../lib/libldk', {
   RouteHint_set_short_channel_id: [ref.types.void, [
     LDKRouteHintPtr,
     ref.types.ulonglong,
+  ]],
+  RouteHint_get_fees: [LDKRoutingFees, [
+    LDKRouteHintPtr,
+  ]],
+  RouteHint_set_fees: [ref.types.void, [
+    LDKRouteHintPtr,
+    LDKRoutingFees,
   ]],
   RouteHint_get_cltv_expiry_delta: [ref.types.ushort, [
     LDKRouteHintPtr,
@@ -2931,9 +3635,16 @@ exports.libldk = new FFI.Library(__dirname + '/../../lib/libldk', {
     LDKRouteHintPtr,
     ref.types.ulonglong,
   ]],
+  RouteHint_new: [LDKRouteHint, [
+    LDKPublicKey,
+    ref.types.ulonglong,
+    LDKRoutingFees,
+    ref.types.ushort,
+    ref.types.ulonglong,
+  ]],
   get_route: [LDKCResultTempl_Route__LightningError, [
     LDKPublicKey,
-    LDKNetworkGraph,
+    LDKNetworkGraphPtr,
     LDKPublicKey,
     LDKCVec_ChannelDetailsZPtr,
     LDKCVecTempl_RouteHint,
@@ -2944,14 +3655,35 @@ exports.libldk = new FFI.Library(__dirname + '/../../lib/libldk', {
   NetworkGraph_free: [ref.types.void, [
     LDKNetworkGraph,
   ]],
-  LockedNetworkGraph_graph: [LDKNetworkGraph, [
+  LockedNetworkGraph_free: [ref.types.void, [
     LDKLockedNetworkGraph,
   ]],
-  NetGraphMsgHandler_as_RoutingMessageHandler: [LDKRoutingMessageHandler, [
+  NetGraphMsgHandler_free: [ref.types.void, [
     LDKNetGraphMsgHandler,
   ]],
-  DirectionalChannelInfo_get_last_update: [ref.types.uint32, [
+  NetGraphMsgHandler_new: [LDKNetGraphMsgHandler, [
+    LDKAccessPtr,
+    LDKLogger,
+  ]],
+  NetGraphMsgHandler_from_net_graph: [LDKNetGraphMsgHandler, [
+    LDKAccessPtr,
+    LDKLogger,
+    LDKNetworkGraph,
+  ]],
+  NetGraphMsgHandler_read_locked_graph: [LDKLockedNetworkGraph, [
+    LDKNetGraphMsgHandlerPtr,
+  ]],
+  LockedNetworkGraph_graph: [LDKNetworkGraph, [
+    LDKLockedNetworkGraphPtr,
+  ]],
+  NetGraphMsgHandler_as_RoutingMessageHandler: [LDKRoutingMessageHandler, [
+    LDKNetGraphMsgHandlerPtr,
+  ]],
+  DirectionalChannelInfo_free: [ref.types.void, [
     LDKDirectionalChannelInfo,
+  ]],
+  DirectionalChannelInfo_get_last_update: [ref.types.uint32, [
+    LDKDirectionalChannelInfoPtr,
   ]],
   DirectionalChannelInfo_set_last_update: [ref.types.void, [
     LDKDirectionalChannelInfoPtr,
@@ -2990,6 +3722,16 @@ exports.libldk = new FFI.Library(__dirname + '/../../lib/libldk', {
   ]],
   DirectionalChannelInfo_read: [LDKDirectionalChannelInfo, [
     LDKu8slice,
+  ]],
+  ChannelInfo_free: [ref.types.void, [
+    LDKChannelInfo,
+  ]],
+  ChannelInfo_get_features: [LDKChannelFeatures, [
+    LDKChannelInfoPtr,
+  ]],
+  ChannelInfo_set_features: [ref.types.void, [
+    LDKChannelInfoPtr,
+    LDKChannelFeatures,
   ]],
   ChannelInfo_get_node_one: [LDKPublicKey, [
     LDKChannelInfoPtr,
@@ -3032,8 +3774,11 @@ exports.libldk = new FFI.Library(__dirname + '/../../lib/libldk', {
   ChannelInfo_read: [LDKChannelInfo, [
     LDKu8slice,
   ]],
-  RoutingFees_get_base_msat: [ref.types.uint32, [
+  RoutingFees_free: [ref.types.void, [
     LDKRoutingFees,
+  ]],
+  RoutingFees_get_base_msat: [ref.types.uint32, [
+    LDKRoutingFeesPtr,
   ]],
   RoutingFees_set_base_msat: [ref.types.void, [
     LDKRoutingFeesPtr,
@@ -3055,6 +3800,16 @@ exports.libldk = new FFI.Library(__dirname + '/../../lib/libldk', {
   ]],
   RoutingFees_write: [LDKCVecTempl_u8, [
     LDKRoutingFeesPtr,
+  ]],
+  NodeAnnouncementInfo_free: [ref.types.void, [
+    LDKNodeAnnouncementInfo,
+  ]],
+  NodeAnnouncementInfo_get_features: [LDKNodeFeatures, [
+    LDKNodeAnnouncementInfoPtr,
+  ]],
+  NodeAnnouncementInfo_set_features: [ref.types.void, [
+    LDKNodeAnnouncementInfoPtr,
+    LDKNodeFeatures,
   ]],
   NodeAnnouncementInfo_get_last_update: [ref.types.uint32, [
     LDKNodeAnnouncementInfoPtr,
@@ -3088,14 +3843,25 @@ exports.libldk = new FFI.Library(__dirname + '/../../lib/libldk', {
     LDKNodeAnnouncementInfoPtr,
     LDKNodeAnnouncement,
   ]],
+  NodeAnnouncementInfo_new: [LDKNodeAnnouncementInfo, [
+    LDKNodeFeatures,
+    ref.types.uint32,
+    LDKThreeBytes,
+    LDKThirtyTwoBytes,
+    LDKCVecTempl_NetAddress,
+    LDKNodeAnnouncement,
+  ]],
   NodeAnnouncementInfo_write: [LDKCVecTempl_u8, [
     LDKNodeAnnouncementInfoPtr,
   ]],
   NodeAnnouncementInfo_read: [LDKNodeAnnouncementInfo, [
     LDKu8slice,
   ]],
-  NodeInfo_set_channels: [ref.types.void, [
+  NodeInfo_free: [ref.types.void, [
     LDKNodeInfo,
+  ]],
+  NodeInfo_set_channels: [ref.types.void, [
+    LDKNodeInfoPtr,
     LDKCVecTempl_u64,
   ]],
   NodeInfo_get_lowest_inbound_channel_fees: [LDKRoutingFees, [

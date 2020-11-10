@@ -13,7 +13,7 @@ import MessageHandler from './ldk/message_handler';
 import PeerManager from './ldk/peer_manager';
 import ChannelManager from './ldk/channel_manager';
 
-const library = RawFFI.liblightning;
+const library = RawFFI.libldk;
 const delay = time => new Promise(res => setTimeout(() => res(), time));
 
 
@@ -56,7 +56,8 @@ const remotePublicKeyObject = RawLDKTypes.bufferToPublicKey(alexPublicKey);
 
 const peerManagerPointer = peerManager.pointer;
 
-const firstMessage = library.PeerManager_new_outbound_connection(93, 103, peerManagerPointer, remotePublicKeyObject, socketDescriptor);
+// const firstMessage = library.PeerManager_new_outbound_connection(93, 103, peerManagerPointer, remotePublicKeyObject, socketDescriptor);
+const firstMessage = library.PeerManager_new_outbound_connection(peerManagerPointer, remotePublicKeyObject, socketDescriptor);
 const pointee = firstMessage.q;
 const messageWrapper = firstMessage.message.deref();
 if (messageWrapper.result_good) {

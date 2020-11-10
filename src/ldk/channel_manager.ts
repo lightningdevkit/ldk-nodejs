@@ -7,8 +7,9 @@ import Logger from './logger';
 import RawLDKTypes from './RawLDKTypes';
 import ManyChannelMonitor from './ManyChannelMonitor';
 import KeysInterface from './keys_interface';
+import LDKWatch from './ldk_watch';
 
-const library = RawFFI.liblightning;
+const library = RawFFI.libldk;
 
 export default class ChannelManager extends RawLDKObject {
 
@@ -28,7 +29,9 @@ export default class ChannelManager extends RawLDKObject {
 		});
 
 		const defaultConfig = library.UserConfig_default();
-		const mcm = new ManyChannelMonitor();
+		// const mcm = new ManyChannelMonitor();
+
+		const monitor = new LDKWatch();
 
 		const broadcastCallback = ffi.Callback(ref.types.void, [voidPtrType, RawFFI.LDKTransaction], (this_arg, tx) => {
 			console.log('broadcasting');
@@ -40,7 +43,7 @@ export default class ChannelManager extends RawLDKObject {
 		this.rawObject = library.ChannelManager_new(
 			testnetNetwork,
 			feeEstimator,
-			mcm.direct,
+			monitor.direct,
 			transactionBroadcaster,
 			logger.direct,
 			keysInterface.direct,

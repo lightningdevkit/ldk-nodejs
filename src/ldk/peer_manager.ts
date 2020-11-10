@@ -6,7 +6,7 @@ import MessageHandler from './message_handler';
 import Logger from './logger';
 import RawLDKTypes from './RawLDKTypes';
 
-const library = RawFFI.liblightning;
+const library = RawFFI.libldk;
 
 export default class PeerManager extends RawLDKObject {
 
@@ -49,6 +49,7 @@ export default class PeerManager extends RawLDKObject {
 
 	constructor(messageHandler: MessageHandler, ldkSecretKey, ephemeralPrivateKey, logger: Logger) {
 		super();
-		this.rawObject = library.PeerManager_new(23, messageHandler.direct, ldkSecretKey, ephemeralPrivateKey, logger.direct);
+		// this.rawObject = library.PeerManager_new(23, messageHandler.direct, ldkSecretKey, ephemeralPrivateKey, logger.direct);
+		this.rawObject = library.PeerManager_new(messageHandler.direct, ldkSecretKey, ephemeralPrivateKey, logger.direct);
 	}
 }

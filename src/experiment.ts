@@ -7,7 +7,7 @@ import * as RawFFI from './ldk/ffi';
 import ManyChannelMonitor from './ldk/ManyChannelMonitor';
 import RawLDKTypes from './ldk/RawLDKTypes';
 
-const library = RawFFI.liblightning;
+const library = RawFFI.libldk;
 
 
 function testUnionResult() {
